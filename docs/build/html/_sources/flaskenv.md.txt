@@ -1,0 +1,9 @@
+# Environnement FLASK (.flaskenv)
+
+>**Lien avec le module python correspondant à l'application Flask**
+>
+>```FLASK_APP=app```
+>
+>**Activation du mode debuggage (pour dévelopement uniquement)**
+>
+>```FLASK_DEBUG=True```  

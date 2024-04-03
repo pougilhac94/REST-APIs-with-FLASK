@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0bfd95fa"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+        <script src="_static/twemoji.js?v=a4381b3f"></script>
+        <script src="_static/translations.js?v=d99ca74e"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Recherche" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            REST APIs with Flask and Python in 2024
+              <img src="_static/flask.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="avant-propos.html">Avant-propos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#sphinx">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#organisation">Organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ressources.html">Dossier Ressources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.item.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.delete"><code class="docutils literal notranslate"><span class="pre">Item.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.get"><code class="docutils literal notranslate"><span class="pre">Item.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.methods"><code class="docutils literal notranslate"><span class="pre">Item.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.put"><code class="docutils literal notranslate"><span class="pre">Item.put()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.item.ItemList"><code class="docutils literal notranslate"><span class="pre">ItemList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.ItemList.get"><code class="docutils literal notranslate"><span class="pre">ItemList.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.ItemList.methods"><code class="docutils literal notranslate"><span class="pre">ItemList.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.ItemList.post"><code class="docutils literal notranslate"><span class="pre">ItemList.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.store.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.store.Store.methods"><code class="docutils literal notranslate"><span class="pre">Store.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.store.StoreList"><code class="docutils literal notranslate"><span class="pre">StoreList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.store.StoreList.methods"><code class="docutils literal notranslate"><span class="pre">StoreList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tag.LinkTagsToItem"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.LinkTagsToItem.delete"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.LinkTagsToItem.methods"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tag.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.Tag.delete"><code class="docutils literal notranslate"><span class="pre">Tag.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.Tag.get"><code class="docutils literal notranslate"><span class="pre">Tag.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.Tag.methods"><code class="docutils literal notranslate"><span class="pre">Tag.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore"><code class="docutils literal notranslate"><span class="pre">TagsInStore</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.get"><code class="docutils literal notranslate"><span class="pre">TagsInStore.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.methods"><code class="docutils literal notranslate"><span class="pre">TagsInStore.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.item.ItemModel"><code class="docutils literal notranslate"><span class="pre">ItemModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.item.ItemModel.query"><code class="docutils literal notranslate"><span class="pre">ItemModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.item_tags.ItemsTags"><code class="docutils literal notranslate"><span class="pre">ItemsTags</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.item_tags.ItemsTags.query"><code class="docutils literal notranslate"><span class="pre">ItemsTags.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.store.StoreModel"><code class="docutils literal notranslate"><span class="pre">StoreModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.store.StoreModel.query"><code class="docutils literal notranslate"><span class="pre">StoreModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.tag.TagModel"><code class="docutils literal notranslate"><span class="pre">TagModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.tag.TagModel.query"><code class="docutils literal notranslate"><span class="pre">TagModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.user.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.user.UserModel.query"><code class="docutils literal notranslate"><span class="pre">UserModel.query</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instance.html">Dossier Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Dossier Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">Répertoire Racine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Configuration de l’application Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.ProdConfig"><code class="docutils literal notranslate"><span class="pre">ProdConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html">Schémas Marshmallow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.ItemSchema"><code class="docutils literal notranslate"><span class="pre">ItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.ItemUpdateSchema"><code class="docutils literal notranslate"><span class="pre">ItemUpdateSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainItemSchema"><code class="docutils literal notranslate"><span class="pre">PlainItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainStoreSchema"><code class="docutils literal notranslate"><span class="pre">PlainStoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainTagSchema"><code class="docutils literal notranslate"><span class="pre">PlainTagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doc_dockerfile.html">Environnement Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">REST APIs with Flask and Python in 2024</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    app
+
+      <ul>
+        <li><a href="app.html#module-app">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    blocklist
+
+      <ul>
+        <li><a href="blocklist.html#module-blocklist">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    config
+
+      <ul>
+        <li><a href="config.html#module-config">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="config.html#config.Config">Config (classe dans config)</a>
+</li>
+      <li><a href="app.html#app.create_app">create_app() (dans le module app)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    db
+
+      <ul>
+        <li><a href="db.html#module-db">module</a>
+</li>
+      </ul></li>
+      <li><a href="ressources.html#ressources.item.Item.delete">delete() (méthode ressources.item.Item)</a>
+
+      <ul>
+        <li><a href="ressources.html#ressources.tag.LinkTagsToItem.delete">(méthode ressources.tag.LinkTagsToItem)</a>
+</li>
+        <li><a href="ressources.html#ressources.tag.Tag.delete">(méthode ressources.tag.Tag)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="config.html#config.DevConfig">DevConfig (classe dans config)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.item.Item.get">get() (méthode ressources.item.Item)</a>
+
+      <ul>
+        <li><a href="ressources.html#ressources.item.ItemList.get">(méthode ressources.item.ItemList)</a>
+</li>
+        <li><a href="ressources.html#ressources.tag.Tag.get">(méthode ressources.tag.Tag)</a>
+</li>
+        <li><a href="ressources.html#ressources.tag.TagsInStore.get">(méthode ressources.tag.TagsInStore)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.item.Item">Item (classe dans ressources.item)</a>
+</li>
+      <li><a href="ressources.html#ressources.item.ItemList">ItemList (classe dans ressources.item)</a>
+</li>
+      <li><a href="models.html#models.item.ItemModel">ItemModel (classe dans models.item)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="schemas.html#schemas.ItemSchema">ItemSchema (classe dans schemas)</a>
+</li>
+      <li><a href="models.html#models.item_tags.ItemsTags">ItemsTags (classe dans models.item_tags)</a>
+</li>
+      <li><a href="schemas.html#schemas.ItemUpdateSchema">ItemUpdateSchema (classe dans schemas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.tag.LinkTagsToItem">LinkTagsToItem (classe dans ressources.tag)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.item.Item.methods">methods (attribut ressources.item.Item)</a>
+
+      <ul>
+        <li><a href="ressources.html#ressources.item.ItemList.methods">(attribut ressources.item.ItemList)</a>
+</li>
+        <li><a href="ressources.html#ressources.store.Store.methods">(attribut ressources.store.Store)</a>
+</li>
+        <li><a href="ressources.html#ressources.store.StoreList.methods">(attribut ressources.store.StoreList)</a>
+</li>
+        <li><a href="ressources.html#ressources.tag.LinkTagsToItem.methods">(attribut ressources.tag.LinkTagsToItem)</a>
+</li>
+        <li><a href="ressources.html#ressources.tag.Tag.methods">(attribut ressources.tag.Tag)</a>
+</li>
+        <li><a href="ressources.html#ressources.tag.TagsInStore.methods">(attribut ressources.tag.TagsInStore)</a>
+</li>
+        <li><a href="ressources.html#ressources.user.TokenRefresh.methods">(attribut ressources.user.TokenRefresh)</a>
+</li>
+        <li><a href="ressources.html#ressources.user.User.methods">(attribut ressources.user.User)</a>
+</li>
+        <li><a href="ressources.html#ressources.user.UserList.methods">(attribut ressources.user.UserList)</a>
+</li>
+        <li><a href="ressources.html#ressources.user.UserLogin.methods">(attribut ressources.user.UserLogin)</a>
+</li>
+        <li><a href="ressources.html#ressources.user.UserLogout.methods">(attribut ressources.user.UserLogout)</a>
+</li>
+        <li><a href="ressources.html#ressources.user.UserRegister.methods">(attribut ressources.user.UserRegister)</a>
+</li>
+      </ul></li>
+      <li>
+    models.__init__
+
+      <ul>
+        <li><a href="models.html#module-models.__init__">module</a>
+</li>
+      </ul></li>
+      <li>
+    models.item
+
+      <ul>
+        <li><a href="models.html#module-models.item">module</a>
+</li>
+      </ul></li>
+      <li>
+    models.item_tags
+
+      <ul>
+        <li><a href="models.html#module-models.item_tags">module</a>
+</li>
+      </ul></li>
+      <li>
+    models.store
+
+      <ul>
+        <li><a href="models.html#module-models.store">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    models.tag
+
+      <ul>
+        <li><a href="models.html#module-models.tag">module</a>
+</li>
+      </ul></li>
+      <li>
+    models.user
+
+      <ul>
+        <li><a href="models.html#module-models.user">module</a>
+</li>
+      </ul></li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="app.html#module-app">app</a>
+</li>
+        <li><a href="blocklist.html#module-blocklist">blocklist</a>
+</li>
+        <li><a href="config.html#module-config">config</a>
+</li>
+        <li><a href="db.html#module-db">db</a>
+</li>
+        <li><a href="models.html#module-models.__init__">models.__init__</a>
+</li>
+        <li><a href="models.html#module-models.item">models.item</a>
+</li>
+        <li><a href="models.html#module-models.item_tags">models.item_tags</a>
+</li>
+        <li><a href="models.html#module-models.store">models.store</a>
+</li>
+        <li><a href="models.html#module-models.tag">models.tag</a>
+</li>
+        <li><a href="models.html#module-models.user">models.user</a>
+</li>
+        <li><a href="ressources.html#module-ressources.item">ressources.item</a>
+</li>
+        <li><a href="ressources.html#module-ressources.store">ressources.store</a>
+</li>
+        <li><a href="ressources.html#module-ressources.tag">ressources.tag</a>
+</li>
+        <li><a href="ressources.html#module-ressources.user">ressources.user</a>
+</li>
+        <li><a href="schemas.html#module-schemas">schemas</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="schemas.html#schemas.PlainItemSchema">PlainItemSchema (classe dans schemas)</a>
+</li>
+      <li><a href="schemas.html#schemas.PlainStoreSchema">PlainStoreSchema (classe dans schemas)</a>
+</li>
+      <li><a href="schemas.html#schemas.PlainTagSchema">PlainTagSchema (classe dans schemas)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.item.ItemList.post">post() (méthode ressources.item.ItemList)</a>
+
+      <ul>
+        <li><a href="ressources.html#ressources.tag.TagsInStore.post">(méthode ressources.tag.TagsInStore)</a>
+</li>
+      </ul></li>
+      <li><a href="config.html#config.ProdConfig">ProdConfig (classe dans config)</a>
+</li>
+      <li><a href="ressources.html#ressources.item.Item.put">put() (méthode ressources.item.Item)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models.html#models.item.ItemModel.query">query (attribut models.item.ItemModel)</a>
+
+      <ul>
+        <li><a href="models.html#models.item_tags.ItemsTags.query">(attribut models.item_tags.ItemsTags)</a>
+</li>
+        <li><a href="models.html#models.store.StoreModel.query">(attribut models.store.StoreModel)</a>
+</li>
+        <li><a href="models.html#models.tag.TagModel.query">(attribut models.tag.TagModel)</a>
+</li>
+        <li><a href="models.html#models.user.UserModel.query">(attribut models.user.UserModel)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    ressources.item
+
+      <ul>
+        <li><a href="ressources.html#module-ressources.item">module</a>
+</li>
+      </ul></li>
+      <li>
+    ressources.store
+
+      <ul>
+        <li><a href="ressources.html#module-ressources.store">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    ressources.tag
+
+      <ul>
+        <li><a href="ressources.html#module-ressources.tag">module</a>
+</li>
+      </ul></li>
+      <li>
+    ressources.user
+
+      <ul>
+        <li><a href="ressources.html#module-ressources.user">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    schemas
+
+      <ul>
+        <li><a href="schemas.html#module-schemas">module</a>
+</li>
+      </ul></li>
+      <li><a href="ressources.html#ressources.store.Store">Store (classe dans ressources.store)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.store.StoreList">StoreList (classe dans ressources.store)</a>
+</li>
+      <li><a href="models.html#models.store.StoreModel">StoreModel (classe dans models.store)</a>
+</li>
+      <li><a href="schemas.html#schemas.StoreSchema">StoreSchema (classe dans schemas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.tag.Tag">Tag (classe dans ressources.tag)</a>
+</li>
+      <li><a href="schemas.html#schemas.TagAndItemSchema">TagAndItemSchema (classe dans schemas)</a>
+</li>
+      <li><a href="models.html#models.tag.TagModel">TagModel (classe dans models.tag)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="schemas.html#schemas.TagSchema">TagSchema (classe dans schemas)</a>
+</li>
+      <li><a href="ressources.html#ressources.tag.TagsInStore">TagsInStore (classe dans ressources.tag)</a>
+</li>
+      <li><a href="ressources.html#ressources.user.TokenRefresh">TokenRefresh (classe dans ressources.user)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.user.User">User (classe dans ressources.user)</a>
+</li>
+      <li><a href="ressources.html#ressources.user.UserList">UserList (classe dans ressources.user)</a>
+</li>
+      <li><a href="ressources.html#ressources.user.UserLogin">UserLogin (classe dans ressources.user)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ressources.html#ressources.user.UserLogout">UserLogout (classe dans ressources.user)</a>
+</li>
+      <li><a href="models.html#models.user.UserModel">UserModel (classe dans models.user)</a>
+</li>
+      <li><a href="ressources.html#ressources.user.UserRegister">UserRegister (classe dans ressources.user)</a>
+</li>
+      <li><a href="schemas.html#schemas.UserSchema">UserSchema (classe dans schemas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Udemy &amp; Pougilhac.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

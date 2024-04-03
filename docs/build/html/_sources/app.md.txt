@@ -1,0 +1,34 @@
+Application
+===========
+
+Pour créer l'application Flask, le module app.py s'appuie principalement sur :
+
+- Flask
+- flask_smorest : Api (classe permettant de créer des REST API avec Flask)
+- flask_jwt_extended : JWTManager (classe permettant de générer et de vérifier les jetons JWT (Json Web Token)).
+
+au sein du projet :
+
+- db : instance SQLAlchemy
+- blocklist : liste des tokens bloqués
+- Blueprint : pour chaque ressource
+
+
+Instance SQLAlchemy
+
+    Callback init_app() used to initialize an application for the use with the database setup.
+
+    Method create_all() to create tables.
+
+        This method will issue queries that first check for the existence of each individual table, and if not found will issue the CREATE statements.
+
+        create_all() creates foreign key constraints between tables usually inline with the table definition itself, and for this reason it also generates the tables in order of their dependency. 
+
+Création objet Api()
+
+Création objet JWTManager()
+
+---
+
+.. automodule:: app
+    :members:

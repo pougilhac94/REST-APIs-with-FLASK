@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avant-propos &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0bfd95fa"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+        <script src="_static/twemoji.js?v=a4381b3f"></script>
+        <script src="_static/translations.js?v=d99ca74e"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Dossier Ressources" href="ressources.html" />
+    <link rel="prev" title="Welcome to REST APIs with Flask and Python in 2024’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            REST APIs with Flask and Python in 2024
+              <img src="_static/flask.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Avant-propos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organisation">Organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ressources.html">Dossier Ressources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.item.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.delete"><code class="docutils literal notranslate"><span class="pre">Item.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.get"><code class="docutils literal notranslate"><span class="pre">Item.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.methods"><code class="docutils literal notranslate"><span class="pre">Item.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.Item.put"><code class="docutils literal notranslate"><span class="pre">Item.put()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.item.ItemList"><code class="docutils literal notranslate"><span class="pre">ItemList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.ItemList.get"><code class="docutils literal notranslate"><span class="pre">ItemList.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.ItemList.methods"><code class="docutils literal notranslate"><span class="pre">ItemList.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.item.ItemList.post"><code class="docutils literal notranslate"><span class="pre">ItemList.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.store.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.store.Store.methods"><code class="docutils literal notranslate"><span class="pre">Store.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.store.StoreList"><code class="docutils literal notranslate"><span class="pre">StoreList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.store.StoreList.methods"><code class="docutils literal notranslate"><span class="pre">StoreList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tag.LinkTagsToItem"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.LinkTagsToItem.delete"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.LinkTagsToItem.methods"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tag.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.Tag.delete"><code class="docutils literal notranslate"><span class="pre">Tag.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.Tag.get"><code class="docutils literal notranslate"><span class="pre">Tag.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.Tag.methods"><code class="docutils literal notranslate"><span class="pre">Tag.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore"><code class="docutils literal notranslate"><span class="pre">TagsInStore</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.get"><code class="docutils literal notranslate"><span class="pre">TagsInStore.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.methods"><code class="docutils literal notranslate"><span class="pre">TagsInStore.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.item.ItemModel"><code class="docutils literal notranslate"><span class="pre">ItemModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.item.ItemModel.query"><code class="docutils literal notranslate"><span class="pre">ItemModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.item_tags.ItemsTags"><code class="docutils literal notranslate"><span class="pre">ItemsTags</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.item_tags.ItemsTags.query"><code class="docutils literal notranslate"><span class="pre">ItemsTags.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.store.StoreModel"><code class="docutils literal notranslate"><span class="pre">StoreModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.store.StoreModel.query"><code class="docutils literal notranslate"><span class="pre">StoreModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.tag.TagModel"><code class="docutils literal notranslate"><span class="pre">TagModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.tag.TagModel.query"><code class="docutils literal notranslate"><span class="pre">TagModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.user.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.user.UserModel.query"><code class="docutils literal notranslate"><span class="pre">UserModel.query</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">Répertoire Racine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaskenv.html">Environnement FLASK (.flaskenv)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Configuration de l’application Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.ProdConfig"><code class="docutils literal notranslate"><span class="pre">ProdConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html">Schémas Marshmallow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.ItemSchema"><code class="docutils literal notranslate"><span class="pre">ItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.ItemUpdateSchema"><code class="docutils literal notranslate"><span class="pre">ItemUpdateSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainItemSchema"><code class="docutils literal notranslate"><span class="pre">PlainItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainStoreSchema"><code class="docutils literal notranslate"><span class="pre">PlainStoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainTagSchema"><code class="docutils literal notranslate"><span class="pre">PlainTagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doc_dockerfile.html">Environnement Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">REST APIs with Flask and Python in 2024</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Avant-propos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/avant-propos.md.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to REST APIs with Flask and Python in 2024’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="ressources.html" class="btn btn-neutral float-right" title="Dossier Ressources" accesskey="n">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="avant-propos">
+<h1>Avant-propos<a class="headerlink" href="#avant-propos" title="Link to this heading"></a></h1>
+<section id="sphinx">
+<h2>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading"></a></h2>
+<p>Pour générer la documentation HTML :</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">.\/docs/make.bat</span> <span class="pre">html</span></code></p>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://techwritingmatters.com/documenting-with-sphinx-tutorial-intro-overview%3E">Tutoriel</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="environnements">
+<h2>Environnements<a class="headerlink" href="#environnements" title="Link to this heading"></a></h2>
+<blockquote>
+<div><h3 class="rubric" id="environnement-virtuel">Environnement virtuel</h3>
+<blockquote>
+<div><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">.\/.venv/scripts/activate.bat</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">.\/.venv/scripts/deactivate.bat</span></code></p>
+</div></blockquote>
+</div></blockquote>
+<h3 class="rubric" id="flask">Flask</h3>
+<p>Lancement direct en ligne de commande : <code class="docutils literal notranslate"><span class="pre">flask</span> <span class="pre">run</span></code> (<em>ou passer par Docker</em>)</p>
+<p>Les variables de configuration peuvent être placées dans 2 fichiers : <strong>.env</strong> and <strong>.flaskenv</strong>. Le fichier .flaskenv est plutôt utilisé pour les commandes Flask CLI et .env pour l’application.</p>
+<blockquote>
+<div><blockquote>
+<div><p><mark>Dans le cas présent, toutes les variables sont placées dans le fichier .env</mark></p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><h3 class="rubric" id="instance-base-de-donnees">Instance base de données</h3>
+<p>L’instance SQLAlchemy est lancée par le module app.py (<em>application Flask</em>)</p>
+<h3 class="rubric" id="docker">Docker</h3>
+<blockquote>
+<div><blockquote>
+<div><p><mark>Si l’on veut passer par Docker, il faut d’abord lancer Docker Desktop.</mark></p>
+</div></blockquote>
+</div></blockquote>
+<p>Il faut veiller à créer manuellement le fichier <em>dockerfile</em> à la racine du répertoire de l’application. Il pourra être complété par un fichier <em>dockerignore</em>.</p>
+<ul class="simple">
+<li><p>Créer l’image</p></li>
+</ul>
+<blockquote>
+<div><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">flask-smorest-api</span> <span class="pre">.</span></code></p>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><p>Produire le container</p></li>
+</ul>
+<blockquote>
+<div><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-w</span> <span class="pre">/app</span> <span class="pre">-v</span> <span class="pre">&quot;/c/users/christian/documents/udemy/recording:/app&quot;</span> <span class="pre">flask-smorest-api</span></code></p>
+<p>(<em>cette commande lance l’application Flask sur le port 5000</em>)</p>
+</div></blockquote>
+</div></blockquote>
+<h3 class="rubric" id="insomnia1">Insomnia<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></h3>
+<p>Environnement permettant de tester les APIs. Cet environnement est indépendant de Flask et ne nécessite donc aucune importation préalable dans l’application</p>
+<blockquote>
+<div><blockquote>
+<div><p><mark>Il faut se connecter sur le site <a class="reference external" href="https://app.insomnia.rest/app/dashboard/organizations">Insomnia</a> et ouvrir son espace de travail</mark></p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><h3 class="rubric" id="swagger">Swagger</h3>
+<p>Environnement <em>local</em> documentaire et permettant de tester les APIs (environnement associé à la bibliothêque api de <em>flask_smorest</em>).</p>
+<p><strong>Il faut se connecter <a class="reference external" href="http://localhost:5000/swagger-ui">ici</a></strong></p>
+<h3 class="rubric" id="jwt-i-o">JWT I/O</h3>
+<p>Environnement permettant de tester un JWT</p>
+<p><strong>Il faut se connecter <a class="reference external" href="https://jwt.io">ici</a></strong></p>
+</div></blockquote>
+</section>
+<section id="organisation">
+<h2>Organisation<a class="headerlink" href="#organisation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p><em>A COMPLETER</em></p>
+</div></blockquote>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Prendre garde au rafraîchissement de token, la variable access_token ne provenant que d’une seul requête d’Insomnia (le login), sa mise à jour par une requête refresh ne sera pas pris en compte.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to REST APIs with Flask and Python in 2024’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="ressources.html" class="btn btn-neutral float-right" title="Dossier Ressources" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Udemy &amp; Pougilhac.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

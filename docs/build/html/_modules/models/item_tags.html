@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models.item_tags &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/twemoji.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=0bfd95fa"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+        <script src="../../_static/twemoji.js"></script>
+        <script src="../../_static/translations.js?v=d99ca74e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            REST APIs with Flask and Python in 2024
+              <img src="../../_static/flask.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../avant-propos.html">Avant-propos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../avant-propos.html#sphinx">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../avant-propos.html#environnements">Environnements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#environnement-virtuel">Environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#insomnia">Insomnia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#swagger">Swagger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#organisation">Organisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../ressources.html">Dossier Ressources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.item.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.Item.delete"><code class="docutils literal notranslate"><span class="pre">Item.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.Item.get"><code class="docutils literal notranslate"><span class="pre">Item.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.Item.methods"><code class="docutils literal notranslate"><span class="pre">Item.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.Item.put"><code class="docutils literal notranslate"><span class="pre">Item.put()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.item.ItemList"><code class="docutils literal notranslate"><span class="pre">ItemList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.ItemList.get"><code class="docutils literal notranslate"><span class="pre">ItemList.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.ItemList.methods"><code class="docutils literal notranslate"><span class="pre">ItemList.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.item.ItemList.post"><code class="docutils literal notranslate"><span class="pre">ItemList.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.store.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.store.Store.methods"><code class="docutils literal notranslate"><span class="pre">Store.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.store.StoreList"><code class="docutils literal notranslate"><span class="pre">StoreList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.store.StoreList.methods"><code class="docutils literal notranslate"><span class="pre">StoreList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.tag.LinkTagsToItem"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.LinkTagsToItem.delete"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.LinkTagsToItem.methods"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.tag.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.Tag.delete"><code class="docutils literal notranslate"><span class="pre">Tag.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.Tag.get"><code class="docutils literal notranslate"><span class="pre">Tag.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.Tag.methods"><code class="docutils literal notranslate"><span class="pre">Tag.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.tag.TagsInStore"><code class="docutils literal notranslate"><span class="pre">TagsInStore</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.TagsInStore.get"><code class="docutils literal notranslate"><span class="pre">TagsInStore.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.TagsInStore.methods"><code class="docutils literal notranslate"><span class="pre">TagsInStore.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">Dossier Modèles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../models.html#models.item.ItemModel"><code class="docutils literal notranslate"><span class="pre">ItemModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../models.html#models.item.ItemModel.query"><code class="docutils literal notranslate"><span class="pre">ItemModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models.html#models.item_tags.ItemsTags"><code class="docutils literal notranslate"><span class="pre">ItemsTags</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../models.html#models.item_tags.ItemsTags.query"><code class="docutils literal notranslate"><span class="pre">ItemsTags.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models.html#models.store.StoreModel"><code class="docutils literal notranslate"><span class="pre">StoreModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../models.html#models.store.StoreModel.query"><code class="docutils literal notranslate"><span class="pre">StoreModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models.html#models.tag.TagModel"><code class="docutils literal notranslate"><span class="pre">TagModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../models.html#models.tag.TagModel.query"><code class="docutils literal notranslate"><span class="pre">TagModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models.html#models.user.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../models.html#models.user.UserModel.query"><code class="docutils literal notranslate"><span class="pre">UserModel.query</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../root.html">Répertoire Racine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../app.html">Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../db.html">Base de données SQLAlchemy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../schemas.html">Schémas Marshmallow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.ItemSchema"><code class="docutils literal notranslate"><span class="pre">ItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.ItemUpdateSchema"><code class="docutils literal notranslate"><span class="pre">ItemUpdateSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.PlainItemSchema"><code class="docutils literal notranslate"><span class="pre">PlainItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.PlainStoreSchema"><code class="docutils literal notranslate"><span class="pre">PlainStoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.PlainTagSchema"><code class="docutils literal notranslate"><span class="pre">PlainTagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../doc_dockerfile.html">Environnement Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../doc_dockerfile.html#fichiers-dockerfile">Fichiers : Dockerfile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../flaskenv.html">Environnement FLASK (.flaskenv)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../flaskenv.html#lien-avec-le-module-python-correspondant-a-l-application-flask">Lien avec le module python correspondant à l’application Flask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../flaskenv.html#activation-du-mode-debuggage-pour-developement-uniquement">Activation du mode debuggage (pour dévelopement uniquement)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">REST APIs with Flask and Python in 2024</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">models.item_tags</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de models.item_tags</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">db</span> <span class="kn">import</span> <span class="n">db</span>
+
+<div class="viewcode-block" id="ItemsTags">
+<a class="viewcode-back" href="../../models.html#models.item_tags.ItemsTags">[docs]</a>
+<span class="k">class</span> <span class="nc">ItemsTags</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;items_tags&quot;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">item_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;items.id&quot;</span><span class="p">))</span>
+    <span class="n">tag_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;tags.id&quot;</span><span class="p">))</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Udemy &amp; Pougilhac.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dossier Ressources &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0bfd95fa"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+        <script src="_static/twemoji.js?v=a4381b3f"></script>
+        <script src="_static/translations.js?v=d99ca74e"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Dossier Modèles" href="models.html" />
+    <link rel="prev" title="Avant-propos" href="avant-propos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            REST APIs with Flask and Python in 2024
+              <img src="_static/flask.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="avant-propos.html">Avant-propos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#sphinx">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#environnements">Environnements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#environnement-virtuel">Environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#flask">Flask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#instance-base-de-donnees">Instance base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#insomnia1">Insomnia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#swagger">Swagger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#jwt-i-o">JWT I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#organisation">Organisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dossier Ressources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.item.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.Item.delete"><code class="docutils literal notranslate"><span class="pre">Item.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.Item.get"><code class="docutils literal notranslate"><span class="pre">Item.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.Item.methods"><code class="docutils literal notranslate"><span class="pre">Item.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.Item.put"><code class="docutils literal notranslate"><span class="pre">Item.put()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.item.ItemList"><code class="docutils literal notranslate"><span class="pre">ItemList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.ItemList.get"><code class="docutils literal notranslate"><span class="pre">ItemList.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.ItemList.methods"><code class="docutils literal notranslate"><span class="pre">ItemList.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.item.ItemList.post"><code class="docutils literal notranslate"><span class="pre">ItemList.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.store.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.store.Store.methods"><code class="docutils literal notranslate"><span class="pre">Store.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.store.StoreList"><code class="docutils literal notranslate"><span class="pre">StoreList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.store.StoreList.methods"><code class="docutils literal notranslate"><span class="pre">StoreList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.tag.LinkTagsToItem"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.LinkTagsToItem.delete"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.LinkTagsToItem.methods"><code class="docutils literal notranslate"><span class="pre">LinkTagsToItem.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.tag.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.Tag.delete"><code class="docutils literal notranslate"><span class="pre">Tag.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.Tag.get"><code class="docutils literal notranslate"><span class="pre">Tag.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.Tag.methods"><code class="docutils literal notranslate"><span class="pre">Tag.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.tag.TagsInStore"><code class="docutils literal notranslate"><span class="pre">TagsInStore</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.TagsInStore.get"><code class="docutils literal notranslate"><span class="pre">TagsInStore.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.TagsInStore.methods"><code class="docutils literal notranslate"><span class="pre">TagsInStore.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.item.ItemModel"><code class="docutils literal notranslate"><span class="pre">ItemModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.item.ItemModel.query"><code class="docutils literal notranslate"><span class="pre">ItemModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.item_tags.ItemsTags"><code class="docutils literal notranslate"><span class="pre">ItemsTags</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.item_tags.ItemsTags.query"><code class="docutils literal notranslate"><span class="pre">ItemsTags.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.store.StoreModel"><code class="docutils literal notranslate"><span class="pre">StoreModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.store.StoreModel.query"><code class="docutils literal notranslate"><span class="pre">StoreModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.tag.TagModel"><code class="docutils literal notranslate"><span class="pre">TagModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.tag.TagModel.query"><code class="docutils literal notranslate"><span class="pre">TagModel.query</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.user.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.user.UserModel.query"><code class="docutils literal notranslate"><span class="pre">UserModel.query</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">Répertoire Racine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaskenv.html">Environnement FLASK (.flaskenv)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html">Schémas Marshmallow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.ItemSchema"><code class="docutils literal notranslate"><span class="pre">ItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.ItemUpdateSchema"><code class="docutils literal notranslate"><span class="pre">ItemUpdateSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainItemSchema"><code class="docutils literal notranslate"><span class="pre">PlainItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainStoreSchema"><code class="docutils literal notranslate"><span class="pre">PlainStoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.PlainTagSchema"><code class="docutils literal notranslate"><span class="pre">PlainTagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doc_dockerfile.html">Environnement Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">REST APIs with Flask and Python in 2024</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dossier Ressources</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ressources.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="avant-propos.html" class="btn btn-neutral float-left" title="Avant-propos" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="models.html" class="btn btn-neutral float-right" title="Dossier Modèles" accesskey="n">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dossier-ressources">
+<h1>Dossier Ressources<a class="headerlink" href="#dossier-ressources" title="Link to this heading"></a></h1>
+<p>Chaque ressource correspond à un ensemble de classes décrivant les différentes <strong>APIs</strong> sous forme de fonctions.</p>
+<p>Toute API s’appuie sur la classe <strong>MethodView</strong> <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>Certaines APIs sont amenées à s’appuyer sur des tokens (<strong>JWT</strong>).</p>
+<p>Chaque ressource initialise un <strong>Blueprint</strong> <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> qui sera par la suite importé dans app.py</p>
+<p>Chaque ressource importe préalablement :</p>
+<blockquote>
+<div><p>Concernant l’instance SGBD</p>
+<blockquote>
+<div><p>les modèles et schémas nécessaires</p>
+<p>l’instance <strong>SQLAlchemy</strong></p>
+</div></blockquote>
+</div></blockquote>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>MethodView is a class within the flask.views module of the Flask project. MethodView is a Python Metaclass that determines the methods, such as GET, POST, PUT, etc, that a view defines.</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>The basic concept of blueprints is that they record operations to execute when registered on an application. Flask associates view functions with blueprints when dispatching requests and generating URLs from one endpoint to another.</p>
+</aside>
+</aside>
+<hr class="docutils" />
+<dl class="py class" id="module-ressources.item">
+<dt class="sig sig-object py" id="ressources.item.Item">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.item.</span></span><span class="sig-name descname"><span class="pre">Item</span></span><a class="reference internal" href="_modules/ressources/item.html#Item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.Item" title="Link to this definition"></a></dt>
+<dd><p>Ensemble des traitements de la classe Item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>method</strong> – MethodView</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>URL :</dt><dd><p>/item/&lt;item_id&gt;</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.item.Item.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/item.html#Item.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.Item.delete" title="Link to this definition"></a></dt>
+<dd><p>Supprime l’item demandé</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> (<em>int</em>) – index</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>404</strong> – Not found</p>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>item_id</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.item.Item.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/item.html#Item.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.Item.get" title="Link to this definition"></a></dt>
+<dd><p>Retourne l’item demandé</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> (<em>int</em>) – index</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>404</strong> – Not found</p>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>item</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.item.Item.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#ressources.item.Item.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.item.Item.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/item.html#Item.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.Item.put" title="Link to this definition"></a></dt>
+<dd><p>Mise à jour ou création de l’item demandé</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>item_id</strong> (<em>int</em>) – index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>404</strong> – Not found</p>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>item</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.item.ItemList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.item.</span></span><span class="sig-name descname"><span class="pre">ItemList</span></span><a class="reference internal" href="_modules/ressources/item.html#ItemList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.ItemList" title="Link to this definition"></a></dt>
+<dd><p>Ensemble des traitements de la classe ItemList</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.item.ItemList.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/item.html#ItemList.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.ItemList.get" title="Link to this definition"></a></dt>
+<dd><p>Retourne la liste détaillée de tous les objets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Lève<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>200</strong> – OK</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionnaire item</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.item.ItemList.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#ressources.item.ItemList.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.item.ItemList.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/item.html#ItemList.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.item.ItemList.post" title="Link to this definition"></a></dt>
+<dd><p>Ajoute un item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict</strong> – description de l’item</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>500</strong> – SQLAlchemyError</p>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>item ajouté</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-ressources.store">
+<dt class="sig sig-object py" id="ressources.store.Store">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.store.</span></span><span class="sig-name descname"><span class="pre">Store</span></span><a class="reference internal" href="_modules/ressources/store.html#Store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.store.Store" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.store.Store.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET'}</span></em><a class="headerlink" href="#ressources.store.Store.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.store.StoreList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.store.</span></span><span class="sig-name descname"><span class="pre">StoreList</span></span><a class="reference internal" href="_modules/ressources/store.html#StoreList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.store.StoreList" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.store.StoreList.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#ressources.store.StoreList.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-ressources.tag">
+<dt class="sig sig-object py" id="ressources.tag.LinkTagsToItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.tag.</span></span><span class="sig-name descname"><span class="pre">LinkTagsToItem</span></span><a class="reference internal" href="_modules/ressources/tag.html#LinkTagsToItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.LinkTagsToItem" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ressources.tag.LinkTagsToItem.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/tag.html#LinkTagsToItem.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.LinkTagsToItem.delete" title="Link to this definition"></a></dt>
+<dd><p>Delete a link item-tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_id</strong> (<em>int</em>) – </p></li>
+<li><p><strong>tag_id</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>202</strong> – Erreur</p></li>
+<li><p><strong>404</strong> – Tag ou Item inconnu</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tag_id and item_id</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.tag.LinkTagsToItem.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#ressources.tag.LinkTagsToItem.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.tag.Tag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.tag.</span></span><span class="sig-name descname"><span class="pre">Tag</span></span><a class="reference internal" href="_modules/ressources/tag.html#Tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.Tag" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ressources.tag.Tag.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/tag.html#Tag.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.Tag.delete" title="Link to this definition"></a></dt>
+<dd><p>Delete a tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag_id</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>202</strong> – Tag supprimé</p></li>
+<li><p><strong>400</strong> – Tag assigné à 1 ou plusieurs objets. Suppression impossible</p></li>
+<li><p><strong>404</strong> – Tag inconnu</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tag_id</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.tag.Tag.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/tag.html#Tag.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.Tag.get" title="Link to this definition"></a></dt>
+<dd><p>Return a tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag_id</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>404</strong> – Not found</p>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tag</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.tag.Tag.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET'}</span></em><a class="headerlink" href="#ressources.tag.Tag.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.tag.TagsInStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.tag.</span></span><span class="sig-name descname"><span class="pre">TagsInStore</span></span><a class="reference internal" href="_modules/ressources/tag.html#TagsInStore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.TagsInStore" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ressources.tag.TagsInStore.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/tag.html#TagsInStore.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.TagsInStore.get" title="Link to this definition"></a></dt>
+<dd><p>Return all the tags of a store</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>store_id</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>404</strong> – Not found</p>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>store.tags</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.tag.TagsInStore.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#ressources.tag.TagsInStore.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ressources.tag.TagsInStore.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/tag.html#TagsInStore.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.tag.TagsInStore.post" title="Link to this definition"></a></dt>
+<dd><p>Create a tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>store_id</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>404</strong> – store not found</p></li>
+<li><p><strong>400</strong> – tag already exists</p></li>
+<li><p><strong>500</strong> – SQLAlchemyError</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tag</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-ressources.user">
+<dt class="sig sig-object py" id="ressources.user.TokenRefresh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">TokenRefresh</span></span><a class="reference internal" href="_modules/ressources/user.html#TokenRefresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.TokenRefresh" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.user.TokenRefresh.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#ressources.user.TokenRefresh.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.user.User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">User</span></span><a class="reference internal" href="_modules/ressources/user.html#User"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.User" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.user.User.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET'}</span></em><a class="headerlink" href="#ressources.user.User.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.user.UserList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">UserList</span></span><a class="reference internal" href="_modules/ressources/user.html#UserList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.UserList" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.user.UserList.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET'}</span></em><a class="headerlink" href="#ressources.user.UserList.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.user.UserLogin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">UserLogin</span></span><a class="reference internal" href="_modules/ressources/user.html#UserLogin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.UserLogin" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.user.UserLogin.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#ressources.user.UserLogin.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.user.UserLogout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">UserLogout</span></span><a class="reference internal" href="_modules/ressources/user.html#UserLogout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.UserLogout" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.user.UserLogout.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#ressources.user.UserLogout.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ressources.user.UserRegister">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">UserRegister</span></span><a class="reference internal" href="_modules/ressources/user.html#UserRegister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.UserRegister" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ressources.user.UserRegister.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#ressources.user.UserRegister.methods" title="Link to this definition"></a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="avant-propos.html" class="btn btn-neutral float-left" title="Avant-propos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="models.html" class="btn btn-neutral float-right" title="Dossier Modèles" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Udemy &amp; Pougilhac.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
