@@ -91,5 +91,4 @@ class UserLogout(MethodView):
 class UserList(MethodView):
     @jwt_required()
     def get(self):
-        current_user = get_jwt_identity()
         return UserModel.query.all()
