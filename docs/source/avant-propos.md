@@ -64,6 +64,12 @@ Pour générer la documentation HTML :
 >
 >**Il faut se connecter [ici](https://jwt.io)**
 >
+>### Git
+>
+>Environnement de partage et de sauvegarde de l'environnement\
+>>>L'environnement est créé par la commande `git init`. Il doit être complété par un fichier _gitignore_.\
+>>>Gestion simplifiée par les extensions de VS Code
+>
 ## Organisation
 >
 >*A COMPLETER*

@@ -50,17 +50,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../avant-propos.html">Avant-propos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#sphinx">Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#environnements">Environnements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#environnement-virtuel">Environnement virtuel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#flask">Flask</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#instance-base-de-donnees">Instance base de données</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#docker">Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#insomnia1">Insomnia</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#swagger">Swagger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#jwt-i-o">JWT I/O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#organisation">Organisation</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#organisation">Organisation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ressources.html">Dossier Ressources</a><ul>
@@ -151,10 +142,17 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../instance.html">Dossier Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../root.html">Répertoire Racine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../flaskenv.html">Environnement FLASK (.flaskenv)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../app.html">Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../app.html">Application FLASK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../config.html">Configuration de l’application Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config.html#config.ProdConfig"><code class="docutils literal notranslate"><span class="pre">ProdConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../db.html">Instance SQLAlchemy</a><ul>
@@ -218,6 +216,8 @@
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
 <span class="kn">from</span> <span class="nn">flask_migrate</span> <span class="kn">import</span> <span class="n">Migrate</span>
 
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
 <span class="kn">from</span> <span class="nn">db</span> <span class="kn">import</span> <span class="n">db</span>
 <span class="kn">from</span> <span class="nn">blocklist</span> <span class="kn">import</span> <span class="n">BLOCKLIST</span>
 
@@ -268,6 +268,14 @@
 
     <span class="c1"># Using a development configuration</span>
     <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="s1">&#39;config.DevConfig&#39;</span><span class="p">)</span>
+
+    
+    <span class="c1"># 3 lignes pour afficher une page de garde de l&#39;appli Flask (voir templates/index.html)</span>
+    <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+
 
     <span class="c1">#This callback used to initialize an application for the use with this database setup.</span>
     <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>

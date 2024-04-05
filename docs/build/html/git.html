@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avant-propos &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+  <title>&lt;no title&gt; &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
@@ -25,8 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Dossier Ressources" href="ressources.html" />
-    <link rel="prev" title="Welcome to REST APIs with Flask and Python in 2024’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Blocklist" href="blocklist.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,11 +49,11 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Avant-propos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#sphinx">Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environnements">Environnements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#organisation">Organisation</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="avant-propos.html">Avant-propos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#sphinx">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#organisation">Organisation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ressources.html">Dossier Ressources</a><ul>
@@ -200,127 +199,25 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Avant-propos</li>
+          <li class="breadcrumb-item"><a href="root.html">Répertoire Racine</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/avant-propos.md.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="_sources/git.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to REST APIs with Flask and Python in 2024’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="ressources.html" class="btn btn-neutral float-right" title="Dossier Ressources" accesskey="n">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="blocklist.html" class="btn btn-neutral float-left" title="Blocklist" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="avant-propos">
-<h1>Avant-propos<a class="headerlink" href="#avant-propos" title="Link to this heading"></a></h1>
-<section id="sphinx">
-<h2>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading"></a></h2>
-<p>Pour générer la documentation HTML :</p>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">.\/docs/make.bat</span> <span class="pre">html</span></code></p>
-</div></blockquote>
-</div></blockquote>
-<ul class="simple">
-<li><p><a class="reference external" href="https://techwritingmatters.com/documenting-with-sphinx-tutorial-intro-overview%3E">Tutoriel</a></p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="environnements">
-<h2>Environnements<a class="headerlink" href="#environnements" title="Link to this heading"></a></h2>
-<blockquote>
-<div><h3 class="rubric" id="environnement-virtuel">Environnement virtuel</h3>
-<blockquote>
-<div><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">.\/.venv/scripts/activate.bat</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">.\/.venv/scripts/deactivate.bat</span></code></p>
-</div></blockquote>
-</div></blockquote>
-<h3 class="rubric" id="flask">Flask</h3>
-<p>Lancement direct en ligne de commande : <code class="docutils literal notranslate"><span class="pre">flask</span> <span class="pre">run</span></code> (<em>ou passer par Docker</em>)</p>
-<p>Les variables de configuration peuvent être placées dans 2 fichiers : <strong>.env</strong> and <strong>.flaskenv</strong>. Le fichier .flaskenv est plutôt utilisé pour les commandes Flask CLI et .env pour l’application.</p>
-<blockquote>
-<div><blockquote>
-<div><p><mark>Dans le cas présent, toutes les variables sont placées dans le fichier .env</mark></p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><h3 class="rubric" id="instance-base-de-donnees">Instance base de données</h3>
-<p>L’instance SQLAlchemy est lancée par le module app.py (<em>application Flask</em>)</p>
-<h3 class="rubric" id="docker">Docker</h3>
-<blockquote>
-<div><blockquote>
-<div><p><mark>Si l’on veut passer par Docker, il faut d’abord lancer Docker Desktop.</mark></p>
-</div></blockquote>
-</div></blockquote>
-<p>Il faut veiller à créer manuellement le fichier <em>dockerfile</em> à la racine du répertoire de l’application. Il pourra être complété par un fichier <em>dockerignore</em>.</p>
-<ul class="simple">
-<li><p>Créer l’image</p></li>
-</ul>
-<blockquote>
-<div><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">flask-smorest-api</span> <span class="pre">.</span></code></p>
-</div></blockquote>
-</div></blockquote>
-<ul class="simple">
-<li><p>Produire le container</p></li>
-</ul>
-<blockquote>
-<div><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-w</span> <span class="pre">/app</span> <span class="pre">-v</span> <span class="pre">&quot;/c/users/christian/documents/udemy/recording:/app&quot;</span> <span class="pre">flask-smorest-api</span></code></p>
-<p>(<em>cette commande lance l’application Flask sur le port 5000</em>)</p>
-</div></blockquote>
-</div></blockquote>
-<h3 class="rubric" id="insomnia1">Insomnia<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></h3>
-<p>Environnement permettant de tester les APIs. Cet environnement est indépendant de Flask et ne nécessite donc aucune importation préalable dans l’application</p>
-<blockquote>
-<div><blockquote>
-<div><p><mark>Il faut se connecter sur le site <a class="reference external" href="https://app.insomnia.rest/app/dashboard/organizations">Insomnia</a> et ouvrir son espace de travail</mark></p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><h3 class="rubric" id="swagger">Swagger</h3>
-<p>Environnement <em>local</em> documentaire et permettant de tester les APIs (environnement associé à la bibliothêque api de <em>flask_smorest</em>).</p>
-<p><strong>Il faut se connecter <a class="reference external" href="http://localhost:5000/swagger-ui">ici</a></strong></p>
-<h3 class="rubric" id="jwt-i-o">JWT I/O</h3>
-<p>Environnement permettant de tester un JWT</p>
-<p><strong>Il faut se connecter <a class="reference external" href="https://jwt.io">ici</a></strong></p>
-<h3 class="rubric" id="git">Git</h3>
-<p>Environnement de partage et de sauvegarde de l’environnement\</p>
-<blockquote>
-<div><blockquote>
-<div><p>L’environnement est créé par la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>. Il doit être complété par un fichier <em>gitignore</em>.<br />
-Gestion simplifiée par les extensions de VS Code</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</section>
-<section id="organisation">
-<h2>Organisation<a class="headerlink" href="#organisation" title="Link to this heading"></a></h2>
-<blockquote>
-<div><p><em>A COMPLETER</em></p>
-</div></blockquote>
-<hr class="footnotes docutils" />
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Prendre garde au rafraîchissement de token, la variable access_token ne provenant que d’une seul requête d’Insomnia (le login), sa mise à jour par une requête refresh ne sera pas pris en compte.</p>
-</aside>
-</aside>
-</section>
-</section>
-
+  
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to REST APIs with Flask and Python in 2024’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="ressources.html" class="btn btn-neutral float-right" title="Dossier Ressources" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="blocklist.html" class="btn btn-neutral float-left" title="Blocklist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
     </div>
 
   <hr/>

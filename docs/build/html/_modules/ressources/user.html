@@ -50,17 +50,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../avant-propos.html">Avant-propos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../avant-propos.html#sphinx">Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../avant-propos.html#environnements">Environnements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#environnement-virtuel">Environnement virtuel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#flask">Flask</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#instance-base-de-donnees">Instance base de données</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#docker">Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#insomnia">Insomnia</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#swagger">Swagger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#jwt-i-o">JWT I/O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../avant-propos.html#organisation">Organisation</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../avant-propos.html#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../avant-propos.html#organisation">Organisation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../ressources.html">Dossier Ressources</a><ul>
@@ -151,13 +142,24 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../instance.html">Dossier Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../root.html">Répertoire Racine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../flaskenv.html">Environnement FLASK (.flaskenv)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../app.html">Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../app.html">Application FLASK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../db.html">Instance SQLAlchemy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../config.html">Configuration de l’application Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config.html#config.ProdConfig"><code class="docutils literal notranslate"><span class="pre">ProdConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../db.html">Instance SQLAlchemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../db.html#fichier-db-py">Fichier db.py</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../schemas.html">Schémas Marshmallow</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.ItemSchema"><code class="docutils literal notranslate"><span class="pre">ItemSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../schemas.html#schemas.ItemUpdateSchema"><code class="docutils literal notranslate"><span class="pre">ItemUpdateSchema</span></code></a></li>
@@ -314,11 +316,9 @@
 <a class="viewcode-back" href="../../ressources.html#ressources.user.UserList">[docs]</a>
 <span class="nd">@blp</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/users_list&quot;</span><span class="p">)</span>    
 <span class="k">class</span> <span class="nc">UserList</span><span class="p">(</span><span class="n">MethodView</span><span class="p">):</span>
-    <span class="nd">@blp</span><span class="o">.</span><span class="n">response</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">UserSchema</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="nd">@jwt_required</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">UserModel</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
-
-  
 
 </pre></div>
 
