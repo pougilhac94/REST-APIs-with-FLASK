@@ -70,6 +70,21 @@ Pour générer la documentation HTML :
 >>>L'environnement est créé par la commande `git init`. Il doit être complété par un fichier _gitignore_.\
 >>>Gestion simplifiée par les extensions de VS Code
 >
+>### Render (_Production_)
+>
+>Render est un site d'hébergement sur lequel l'application est accessible (mise à jour à partir du dépôt Git et via Docker).
+>
+>>>_Ne pas omettre les variables d'environnement_
+>
+>### G Unicorn (_Production_)
+>
+>Serveur web HTTP WSGI écrit en Python et disponible pour Unix.
+>Il sera utilisé sur Render en lieu et place du serveur intégré à Flask à usage purement local sur un docker local
+>
+>>>_G Unicorn n'a pas à être installé sur la machine virtuelle (niveau local)._
+>
+>>>_G Unicorn doit être mentionné dans le fichier **requirements**._
+>
 ## Organisation
 >
 >*A COMPLETER*
