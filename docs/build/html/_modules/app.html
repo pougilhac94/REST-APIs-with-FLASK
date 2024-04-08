@@ -173,7 +173,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../doc_dockerfile.html">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../doc_dockerfile.html#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../doc_dockerfile.html#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
 </ul>
@@ -274,8 +278,6 @@
     <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
         <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
-
-
 
     <span class="c1">#This callback used to initialize an application for the use with this database setup.</span>
     <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>

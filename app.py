@@ -56,14 +56,11 @@ def create_app(db_url=None):
 
     # Using a development configuration
     app.config.from_object('config.DevConfig')
-
-    
+  
     # 3 lignes pour afficher une page de garde de l'appli Flask (voir templates/index.html)
     @app.route('/')
     def home():
         return render_template('index.html')
-
-
 
     #This callback used to initialize an application for the use with this database setup.
     db.init_app(app)

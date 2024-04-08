@@ -176,7 +176,11 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#fichier-dockerignore">Fichier .dockerignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#autres-commandes">Autres commandes</a></li>
 </ul>
@@ -227,6 +231,8 @@
 </div></blockquote>
 <section id="fichier-dockerfile">
 <h2>Fichier : Dockerfile<a class="headerlink" href="#fichier-dockerfile" title="Link to this heading"></a></h2>
+<section id="environnement-de-developpement">
+<h3>Environnement de développement<a class="headerlink" href="#environnement-de-developpement" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Image de base<br />
 <code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">python:3.11</span></code></p></li>
@@ -244,7 +250,7 @@
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code></p>
 </div></blockquote>
 <ul class="simple">
-<li><p>Copy des nouveaux modules à installer  dans le répertoire courant de l’image<br />
+<li><p>Copie des nouveaux modules à installer  dans le répertoire courant de l’image<br />
 <code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">requirements_new.txt</span> <span class="pre">.</span></code></p></li>
 </ul>
 <ul class="simple">
@@ -252,12 +258,12 @@
 <code class="docutils literal notranslate"><span class="pre">RUN</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements_new.txt</span></code></p></li>
 </ul>
 <ul class="simple">
-<li><p>Copy du répertoire courant dans le répertoire courant de l’image<br />
+<li><p>Copie du répertoire courant dans le répertoire courant de l’image<br />
 <code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">.</span> <span class="pre">.</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">[&quot;flask&quot;,</span> <span class="pre">&quot;run&quot;,</span> <span class="pre">&quot;--host&quot;,</span> <span class="pre">&quot;0.0.0.0&quot;]</span></code></p></li>
 </ul>
 <ul class="simple">
-<li><p>Création de l’image rest-apis-flask-python :
+<li><p>Création de l’image rest-apis-flask-python :<br />
 <em>à partir du terminal, saisir le . final pour répertoire courant de l’image</em><br />
 <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">flask-smorest-api</span> <span class="pre">.</span></code><a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><br />
 <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-w</span> <span class="pre">/app</span> <span class="pre">-v</span> <span class="pre">absolute-path:/app&quot;</span> <span class="pre">flask-smorest-api</span></code><a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
@@ -265,6 +271,19 @@
 <blockquote>
 <div><p><em>NB : Pas d’utilisation d’un <strong>Docker Volume</strong> mais plutôt d’un <strong>Bind Mounts</strong></em></p>
 </div></blockquote>
+</section>
+<section id="environnement-de-production-sur-render-avec-g-unicorn">
+<h3>Environnement de production sur Render avec G Unicorn<a class="headerlink" href="#environnement-de-production-sur-render-avec-g-unicorn" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Script :<br />
+<code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">python:3.11</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">WORKDIR</span> <span class="pre">/app</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">requirements_new.txt</span> <span class="pre">.</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">RUN</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--no-cache-dir</span> <span class="pre">--upgrade</span> <span class="pre">-r</span> <span class="pre">requirements_new.txt</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">.</span> <span class="pre">.</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">[&quot;gunicorn&quot;,</span> <span class="pre">&quot;--bind&quot;,</span> <span class="pre">&quot;0.0.0.0:80&quot;,</span> <span class="pre">&quot;app:create_app()&quot;]</span></code></p></li>
+</ul>
+</section>
 </section>
 <section id="fichier-dockerignore">
 <h2>Fichier .dockerignore<a class="headerlink" href="#fichier-dockerignore" title="Link to this heading"></a></h2>

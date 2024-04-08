@@ -24,7 +24,7 @@ class Config:
 class ProdConfig(Config):
     """Variables propres à la PRODUCTION"""
     FLASK_DEBUG = False # redémarre application suite à modification
-    SQLALCHEMY_DATABASE_URI = environ.get('PROD__DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = environ.get('PROD__DATABASE_URL') # ou sqlite:///data.db
     JWT_SECRET_KEY = environ.get('PROD_JWT_SECRET_KEY')
 
 
@@ -34,5 +34,5 @@ class DevConfig(Config):
     Variable FLASK_DEBUG = True pour mise à jour automatique de l'application FLASK suite à modification de tout fichier
     """
     FLASK_DEBUG = True
-    SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URL', 'sqlite:///data.db') # sqlite par défaut
     JWT_SECRET_KEY = environ.get('DEV_JWT_SECRET_KEY')

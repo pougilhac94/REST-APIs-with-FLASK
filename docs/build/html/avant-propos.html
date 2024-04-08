@@ -176,7 +176,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doc_dockerfile.html">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="doc_dockerfile.html#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc_dockerfile.html#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
 </ul>
@@ -296,6 +300,26 @@
 <div><blockquote>
 <div><p>L’environnement est créé par la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>. Il doit être complété par un fichier <em>gitignore</em>.<br />
 Gestion simplifiée par les extensions de VS Code</p>
+</div></blockquote>
+</div></blockquote>
+<h3 class="rubric" id="render-production">Render (<em>Production</em>)</h3>
+<p>Render est un site d’hébergement sur lequel l’application est accessible (mise à jour à partir du dépôt Git et via Docker).</p>
+<blockquote>
+<div><blockquote>
+<div><p><em>Ne pas omettre les variables d’environnement</em></p>
+</div></blockquote>
+</div></blockquote>
+<h3 class="rubric" id="g-unicorn-production">G Unicorn (<em>Production</em>)</h3>
+<p>Serveur web HTTP WSGI écrit en Python et disponible pour Unix.
+Il sera utilisé sur Render en lieu et place du serveur intégré à Flask à usage purement local sur un docker local</p>
+<blockquote>
+<div><blockquote>
+<div><p><em>G Unicorn n’a pas à être installé sur la machine virtuelle (niveau local).</em></p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><em>G Unicorn doit être mentionné dans le fichier <strong>requirements</strong>.</em></p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
