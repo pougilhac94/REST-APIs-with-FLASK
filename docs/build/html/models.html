@@ -25,7 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Répertoire Racine" href="root.html" />
+    <link rel="next" title="Dossier Instance" href="instance.html" />
     <link rel="prev" title="Dossier Ressources" href="ressources.html" /> 
 </head>
 
@@ -53,17 +53,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="avant-propos.html">Avant-propos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="avant-propos.html#sphinx">Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#environnements">Environnements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#environnement-virtuel">Environnement virtuel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#flask">Flask</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#instance-base-de-donnees">Instance base de données</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#docker">Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#insomnia1">Insomnia</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#swagger">Swagger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#jwt-i-o">JWT I/O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="avant-propos.html#organisation">Organisation</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avant-propos.html#organisation">Organisation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ressources.html">Dossier Ressources</a><ul>
@@ -154,10 +145,17 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="instance.html">Dossier Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root.html">Répertoire Racine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flaskenv.html">Environnement FLASK (.flaskenv)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="app.html">Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Configuration de l’application Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#config.ProdConfig"><code class="docutils literal notranslate"><span class="pre">ProdConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
@@ -178,7 +176,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doc_dockerfile.html">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="doc_dockerfile.html#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc_dockerfile.html#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
 </ul>
@@ -208,7 +210,7 @@
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="ressources.html" class="btn btn-neutral float-left" title="Dossier Ressources" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="root.html" class="btn btn-neutral float-right" title="Répertoire Racine" accesskey="n">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="instance.html" class="btn btn-neutral float-right" title="Dossier Instance" accesskey="n">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -318,7 +320,7 @@ customized per-model by overriding <code class="xref py py-attr docutils literal
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
         <a href="ressources.html" class="btn btn-neutral float-left" title="Dossier Ressources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="root.html" class="btn btn-neutral float-right" title="Répertoire Racine" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="instance.html" class="btn btn-neutral float-right" title="Dossier Instance" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

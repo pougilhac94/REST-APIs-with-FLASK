@@ -13,7 +13,8 @@ Un environnement Python
 
 ### Installation
 
-Recopier le dépôt dans un répertoire dans lequel il faudra installer une machine virtuelle python (.venv)
+Recopier le dépôt dans un répertoire dans lequel il faudra installer une machine
+virtuelle python (.venv)
 
 ## Démarrage
 
@@ -29,15 +30,18 @@ Exécutez la commande ``run flask`` pour lancer l'application.
 ![GitHub Badge](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=fff)
 ![Sphinx Badge](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)
 
+* ![SQLAlchemy Badge](https://img.shields.io/badge/SQLAlchemy-D71F00?logo=sqlalchemy&logoColor=fff&style=plastic)
+![SQLite Badge](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=fff&style=plastic)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1.svg?style=for-the-badge&logo=PostgreSQL&logoColor=white)
+![dBeaver](https://img.shields.io/badge/DBeaver-382923.svg?style=for-the-badge&logo=DBeaver&logoColor=white)
+
 * ![Docker Badge](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
 ![Insomnia Badge](https://img.shields.io/badge/Insomnia-4000BF?logo=insomnia&logoColor=fff&style=plastic)
-![SQLAlchemy Badge](https://img.shields.io/badge/SQLAlchemy-D71F00?logo=sqlalchemy&logoColor=fff&style=plastic)
-![SQLite Badge](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=fff&style=plastic)
 ![JSON Web Tokens Badge](https://img.shields.io/badge/JSON%20Web%20Tokens-000?logo=jsonwebtokens&logoColor=fff&style=plastic)
 
 ## En production sur
 
-* ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) 
+* ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 ![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white)
 
 ## Contributions

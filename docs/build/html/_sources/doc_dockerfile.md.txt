@@ -44,6 +44,17 @@
 ```RUN pip install --no-cache-dir --upgrade -r requirements_new.txt```\
 ```COPY . .```\
 ```CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:create_app()"]```
+
+* Evolution du script pour automatiser la mise à jour du schéma des tables
+>
+>>La ligne ```CMD``` devient :
+>>
+```CMD ["/bin/bash", "docker-entrypoint.sh"]```
+>>
+>>sous réserve d'avoir créer préalablement le fichier **docker-entrypoint.sh** :
+>
+```flask db upgrade```\
+```exec gunicorn --bind 0.0.0.0:80 "app: create_app()"```
 >
 [^1]: *-t* pour tagué l'image avec *flask-smorest-api*
 

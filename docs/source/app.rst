@@ -28,10 +28,14 @@ Application FLASK
 
         create_all() creates foreign key constraints between tables usually inline with the table definition itself, and for this reason it also generates the tables in order of their dependency. 
 
-    - **Migrate** pour prendre en compte tout changement de schéma de la base de données.
+    - **Migrate** pour prendre en compte tout changement de schéma de la base de données, et pour changer de SGBD (SQLite à PostgreSQL par exemple).
     
         La méthode create_all est alors abandonée.
 
+        * pour une migration : **flask db.migrate**
+
+        * pour une mise à jour : **flask db.upgrade**
+        
         NB : La base de données est réinitialisée lors de la première migration.
 
 * Création objet **Api()**

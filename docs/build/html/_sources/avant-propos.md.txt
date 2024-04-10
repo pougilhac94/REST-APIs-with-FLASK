@@ -20,19 +20,30 @@ Pour générer la documentation HTML :
 >
 >Lancement direct en ligne de commande : `flask run` (_ou passer par Docker_)
 >
->Les variables de configuration peuvent être placées dans 2 fichiers : **.env** and **.flaskenv**. Le fichier .flaskenv est plutôt utilisé pour les commandes Flask CLI et .env pour l'application.
+>Les variables de configuration peuvent être placées dans 2 fichiers : **.env**
+and **.flaskenv**. Le fichier .flaskenv est plutôt utilisé pour les commandes
+Flask CLI et .env pour l'application.
 >
 >>><mark>Dans le cas présent, toutes les variables sont placées dans le fichier .env</mark>
-
+>
 >### Instance base de données
 >
->L'instance SQLAlchemy est lancée par le module app.py (_application Flask_)
+>L'instance SQLAlchemy est lancée par le module app.py (_application Flask_).
+>
+>Pour l'exemple, 2 SGBD sont utilisés, chacun pour un environnement particulier :
+>
+>>>* Développement : **SQLite**
+>>>
+>>>* Production : **PostgreSQL**
 >
 >### Docker
+
+**Environnement facultatif tant que l'on ne passe pas par un hébergement sur render.**
 >
 >>><mark>Si l'on veut passer par Docker, il faut d'abord lancer Docker Desktop.</mark>
 >
->Il faut veiller à créer manuellement le fichier _dockerfile_ à la racine du répertoire de l'application. Il pourra être complété par un fichier _dockerignore_.
+>Il faut veiller à créer manuellement le fichier _dockerfile_ à la racine du
+répertoire de l'application. Il pourra être complété par un fichier _dockerignore_.
 >
 >* Créer l'image
 >
@@ -40,21 +51,26 @@ Pour générer la documentation HTML :
 >
 >* Produire le container
 >
->>>`docker run -dp 5000:5000 -w /app -v "/c/users/christian/documents/udemy/recording:/app" flask-smorest-api`
+>>>`docker run -dp 5000:5000 -w /app -v
+"/c/users/christian/documents/udemy/recording:/app" flask-smorest-api`
 >>>
 >>>(_cette commande lance l'application Flask sur le port 5000_)
 >
 >### Insomnia[^1]
 >
->Environnement permettant de tester les APIs. Cet environnement est indépendant de Flask et ne nécessite donc aucune importation préalable dans l'application
+>Environnement permettant de tester les APIs. Cet environnement est indépendant
+de Flask et ne nécessite donc aucune importation préalable dans l'application
 >
->>><mark>Il faut se connecter sur le site [Insomnia](https://app.insomnia.rest/app/dashboard/organizations) et ouvrir son espace de travail</mark>
+>>><mark>Il faut se connecter sur le site
+[Insomnia](https://app.insomnia.rest/app/dashboard/organizations)
+et ouvrir son espace de travail</mark>
 
 [^1]: Prendre garde au rafraîchissement de token, la variable access_token ne provenant que d'une seul requête d'Insomnia (le login), sa mise à jour par une requête refresh ne sera pas pris en compte.
 >
 >### Swagger
 >
->Environnement _local_ documentaire et permettant de tester les APIs (environnement associé à la bibliothêque api de _flask_smorest_).
+>Environnement _local_ documentaire et permettant de tester les APIs
+(environnement associé à la bibliothêque api de _flask_smorest_).
 >
 >**Il faut se connecter [ici](http://localhost:5000/swagger-ui)**
 >
@@ -67,22 +83,28 @@ Pour générer la documentation HTML :
 >### Git
 >
 >Environnement de partage et de sauvegarde de l'environnement\
->>>L'environnement est créé par la commande `git init`. Il doit être complété par un fichier _gitignore_.\
+>>>L'environnement est créé par la commande `git init`. Il doit être complété
+par un fichier _gitignore_.\
 >>>Gestion simplifiée par les extensions de VS Code
 >
 >### Render (_Production_)
 >
->Render est un site d'hébergement sur lequel l'application est accessible (mise à jour à partir du dépôt Git et via Docker).
+>Render est un site d'hébergement sur lequel l'application est accessible (mise
+à jour à partir du dépôt Git et via Docker).
+>
+>Il est ici considéré que l'environnement de production est hébergé sur _render_
+à la différence de l'environnement de développement qui reste _local_.
 >
 >>>_Ne pas omettre les variables d'environnement_
 >
 >### G Unicorn (_Production_)
 >
 >Serveur web HTTP WSGI écrit en Python et disponible pour Unix.
->Il sera utilisé sur Render en lieu et place du serveur intégré à Flask à usage purement local sur un docker local
+>Il sera utilisé sur Render en lieu et place du serveur intégré à Flask à usage
+purement local sur un docker local
 >
 >>>_G Unicorn n'a pas à être installé sur la machine virtuelle (niveau local)._
->
+>>>
 >>>_G Unicorn doit être mentionné dans le fichier **requirements**._
 >
 ## Organisation

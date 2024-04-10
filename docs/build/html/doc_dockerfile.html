@@ -159,7 +159,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
 </ul>
 </li>
@@ -282,7 +284,21 @@
 <code class="docutils literal notranslate"><span class="pre">RUN</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--no-cache-dir</span> <span class="pre">--upgrade</span> <span class="pre">-r</span> <span class="pre">requirements_new.txt</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">.</span> <span class="pre">.</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">[&quot;gunicorn&quot;,</span> <span class="pre">&quot;--bind&quot;,</span> <span class="pre">&quot;0.0.0.0:80&quot;,</span> <span class="pre">&quot;app:create_app()&quot;]</span></code></p></li>
+<li><p>Evolution du script pour automatiser la mise à jour du schéma des tables</p></li>
 </ul>
+<blockquote>
+<div><blockquote>
+<div><p>La ligne <code class="docutils literal notranslate"><span class="pre">CMD</span></code> devient :</p>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">[&quot;/bin/bash&quot;,</span> <span class="pre">&quot;docker-entrypoint.sh&quot;]</span></code></p>
+<blockquote>
+<div><blockquote>
+<div><p>sous réserve d’avoir créer préalablement le fichier <strong>docker-entrypoint.sh</strong> :</p>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">flask</span> <span class="pre">db</span> <span class="pre">upgrade</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">exec</span> <span class="pre">gunicorn</span> <span class="pre">--bind</span> <span class="pre">0.0.0.0:80</span> <span class="pre">&quot;app:</span> <span class="pre">create_app()&quot;</span></code></p>
 </section>
 </section>
 <section id="fichier-dockerignore">

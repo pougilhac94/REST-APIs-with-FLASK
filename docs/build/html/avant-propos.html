@@ -159,7 +159,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
 </ul>
 </li>
@@ -245,23 +247,36 @@
 </div></blockquote>
 <h3 class="rubric" id="flask">Flask</h3>
 <p>Lancement direct en ligne de commande : <code class="docutils literal notranslate"><span class="pre">flask</span> <span class="pre">run</span></code> (<em>ou passer par Docker</em>)</p>
-<p>Les variables de configuration peuvent être placées dans 2 fichiers : <strong>.env</strong> and <strong>.flaskenv</strong>. Le fichier .flaskenv est plutôt utilisé pour les commandes Flask CLI et .env pour l’application.</p>
+<p>Les variables de configuration peuvent être placées dans 2 fichiers : <strong>.env</strong>
+and <strong>.flaskenv</strong>. Le fichier .flaskenv est plutôt utilisé pour les commandes
+Flask CLI et .env pour l’application.</p>
 <blockquote>
 <div><blockquote>
 <div><p><mark>Dans le cas présent, toutes les variables sont placées dans le fichier .env</mark></p>
 </div></blockquote>
 </div></blockquote>
+<h3 class="rubric" id="instance-base-de-donnees">Instance base de données</h3>
+<p>L’instance SQLAlchemy est lancée par le module app.py (<em>application Flask</em>).</p>
+<p>Pour l’exemple, 2 SGBD sont utilisés, chacun pour un environnement particulier :</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>Développement : <strong>SQLite</strong></p></li>
+<li><p>Production : <strong>PostgreSQL</strong></p></li>
+</ul>
 </div></blockquote>
-<blockquote>
-<div><h3 class="rubric" id="instance-base-de-donnees">Instance base de données</h3>
-<p>L’instance SQLAlchemy est lancée par le module app.py (<em>application Flask</em>)</p>
+</div></blockquote>
 <h3 class="rubric" id="docker">Docker</h3>
+</div></blockquote>
+<p><strong>Environnement facultatif tant que l’on ne passe pas par un hébergement sur render.</strong></p>
 <blockquote>
+<div><blockquote>
 <div><blockquote>
 <div><p><mark>Si l’on veut passer par Docker, il faut d’abord lancer Docker Desktop.</mark></p>
 </div></blockquote>
 </div></blockquote>
-<p>Il faut veiller à créer manuellement le fichier <em>dockerfile</em> à la racine du répertoire de l’application. Il pourra être complété par un fichier <em>dockerignore</em>.</p>
+<p>Il faut veiller à créer manuellement le fichier <em>dockerfile</em> à la racine du
+répertoire de l’application. Il pourra être complété par un fichier <em>dockerignore</em>.</p>
 <ul class="simple">
 <li><p>Créer l’image</p></li>
 </ul>
@@ -280,16 +295,20 @@
 </div></blockquote>
 </div></blockquote>
 <h3 class="rubric" id="insomnia1">Insomnia<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></h3>
-<p>Environnement permettant de tester les APIs. Cet environnement est indépendant de Flask et ne nécessite donc aucune importation préalable dans l’application</p>
+<p>Environnement permettant de tester les APIs. Cet environnement est indépendant
+de Flask et ne nécessite donc aucune importation préalable dans l’application</p>
 <blockquote>
 <div><blockquote>
-<div><p><mark>Il faut se connecter sur le site <a class="reference external" href="https://app.insomnia.rest/app/dashboard/organizations">Insomnia</a> et ouvrir son espace de travail</mark></p>
+<div><p><mark>Il faut se connecter sur le site
+<a class="reference external" href="https://app.insomnia.rest/app/dashboard/organizations">Insomnia</a>
+et ouvrir son espace de travail</mark></p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
 <blockquote>
 <div><h3 class="rubric" id="swagger">Swagger</h3>
-<p>Environnement <em>local</em> documentaire et permettant de tester les APIs (environnement associé à la bibliothêque api de <em>flask_smorest</em>).</p>
+<p>Environnement <em>local</em> documentaire et permettant de tester les APIs
+(environnement associé à la bibliothêque api de <em>flask_smorest</em>).</p>
 <p><strong>Il faut se connecter <a class="reference external" href="http://localhost:5000/swagger-ui">ici</a></strong></p>
 <h3 class="rubric" id="jwt-i-o">JWT I/O</h3>
 <p>Environnement permettant de tester un JWT</p>
@@ -298,12 +317,16 @@
 <p>Environnement de partage et de sauvegarde de l’environnement\</p>
 <blockquote>
 <div><blockquote>
-<div><p>L’environnement est créé par la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>. Il doit être complété par un fichier <em>gitignore</em>.<br />
+<div><p>L’environnement est créé par la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>. Il doit être complété
+par un fichier <em>gitignore</em>.<br />
 Gestion simplifiée par les extensions de VS Code</p>
 </div></blockquote>
 </div></blockquote>
 <h3 class="rubric" id="render-production">Render (<em>Production</em>)</h3>
-<p>Render est un site d’hébergement sur lequel l’application est accessible (mise à jour à partir du dépôt Git et via Docker).</p>
+<p>Render est un site d’hébergement sur lequel l’application est accessible (mise
+à jour à partir du dépôt Git et via Docker).</p>
+<p>Il est ici considéré que l’environnement de production est hébergé sur <em>render</em>
+à la différence de l’environnement de développement qui reste <em>local</em>.</p>
 <blockquote>
 <div><blockquote>
 <div><p><em>Ne pas omettre les variables d’environnement</em></p>
@@ -311,15 +334,12 @@ Gestion simplifiée par les extensions de VS Code</p>
 </div></blockquote>
 <h3 class="rubric" id="g-unicorn-production">G Unicorn (<em>Production</em>)</h3>
 <p>Serveur web HTTP WSGI écrit en Python et disponible pour Unix.
-Il sera utilisé sur Render en lieu et place du serveur intégré à Flask à usage purement local sur un docker local</p>
+Il sera utilisé sur Render en lieu et place du serveur intégré à Flask à usage
+purement local sur un docker local</p>
 <blockquote>
 <div><blockquote>
 <div><p><em>G Unicorn n’a pas à être installé sur la machine virtuelle (niveau local).</em></p>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p><em>G Unicorn doit être mentionné dans le fichier <strong>requirements</strong>.</em></p>
+<p><em>G Unicorn doit être mentionné dans le fichier <strong>requirements</strong>.</em></p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>

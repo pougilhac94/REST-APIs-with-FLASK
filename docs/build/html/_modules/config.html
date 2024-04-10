@@ -173,7 +173,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../doc_dockerfile.html">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../doc_dockerfile.html#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../doc_dockerfile.html#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
 </ul>
@@ -239,7 +243,7 @@
 <span class="k">class</span> <span class="nc">ProdConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Variables propres à la PRODUCTION&quot;&quot;&quot;</span>
     <span class="n">FLASK_DEBUG</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># redémarre application suite à modification</span>
-    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROD__DATABASE_URI&#39;</span><span class="p">)</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROD__DATABASE_URL&#39;</span><span class="p">)</span> <span class="c1"># ou sqlite:///data.db</span>
     <span class="n">JWT_SECRET_KEY</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROD_JWT_SECRET_KEY&#39;</span><span class="p">)</span></div>
 
 
@@ -252,7 +256,7 @@
 <span class="sd">    Variable FLASK_DEBUG = True pour mise à jour automatique de l&#39;application FLASK suite à modification de tout fichier</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">FLASK_DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_DATABASE_URI&#39;</span><span class="p">)</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_DATABASE_URL&#39;</span><span class="p">,</span> <span class="s1">&#39;sqlite:///data.db&#39;</span><span class="p">)</span> <span class="c1"># sqlite par défaut</span>
     <span class="n">JWT_SECRET_KEY</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_JWT_SECRET_KEY&#39;</span><span class="p">)</span></div>
 
 </pre></div>

@@ -159,7 +159,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
 </ul>
 </li>
@@ -249,9 +251,13 @@
 <p>create_all() creates foreign key constraints between tables usually inline with the table definition itself, and for this reason it also generates the tables in order of their dependency.</p>
 </div></blockquote>
 </li>
-<li><p><strong>Migrate</strong> pour prendre en compte tout changement de schéma de la base de données.</p>
+<li><p><strong>Migrate</strong> pour prendre en compte tout changement de schéma de la base de données, et pour changer de SGBD (SQLite à PostgreSQL par exemple).</p>
 <blockquote>
 <div><p>La méthode create_all est alors abandonée.</p>
+<ul class="simple">
+<li><p>pour une migration : <strong>flask db.migrate</strong></p></li>
+<li><p>pour une mise à jour : <strong>flask db.upgrade</strong></p></li>
+</ul>
 <p>NB : La base de données est réinitialisée lors de la première migration.</p>
 </div></blockquote>
 </li>

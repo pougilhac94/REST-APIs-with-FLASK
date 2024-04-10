@@ -1,5 +1,6 @@
 .env
 .venv
+.markdownlint.json
 *.pyc
 __pycache__
 instance/data.db
