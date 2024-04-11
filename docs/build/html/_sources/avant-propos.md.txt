@@ -80,6 +80,17 @@ et ouvrir son espace de travail</mark>
 >
 >**Il faut se connecter [ici](https://jwt.io)**
 >
+>### Gunmail
+>
+>Service de livraison d'e-mails permettant d'envoyer, de recevoir et de suivre
+des e-mails.
+>
+>1. Les mails ne sont envoyés qu'à une seule adresse (la mienne) dans le cadre
+d'un service gratuit _(vérifier dossier spam)_.
+>
+>2. Deux variables d'environnements sont à prendre en compte.
+>
+>**Le suivi du service est [ici](https://app.mailgun.com/mg/dashboard)**>
 >### Git
 >
 >Environnement de partage et de sauvegarde de l'environnement\

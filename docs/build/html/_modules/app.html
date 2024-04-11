@@ -117,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
 </ul>
 </li>
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.UserRegisterSchema"><code class="docutils literal notranslate"><span class="pre">UserRegisterSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
 </ul>
 </li>
@@ -268,7 +270,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-    <span class="c1"># Usage de la configuration de production (inutile si hébergement cloud via render)</span>
+    <span class="c1"># Usage de la configuration de production (inutile si hébergement cloud via)</span>
     <span class="c1">#app.config.from_object(&#39;config.ProdConfig&#39;)</span>
 
     <span class="c1"># Usage de la configuration de développement</span>
@@ -403,8 +405,6 @@
 
 
 <span class="n">create_app</span><span class="p">()</span>
-
-
 </pre></div>
 
            </div>

@@ -6,7 +6,7 @@
   <title>schemas &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/twemoji.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/twemoji.css?v=2199c511" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
-        <script src="../_static/twemoji.js"></script>
+        <script src="../_static/twemoji.js?v=a4381b3f"></script>
         <script src="../_static/translations.js?v=d99ca74e"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,14 +50,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../avant-propos.html">Avant-propos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#sphinx">Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#environnements">Environnements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#environnement-virtuel">Environnement virtuel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#docker">Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#insomnia">Insomnia</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#swagger">Swagger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../avant-propos.html#organisation">Organisation</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#environnements">Environnements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avant-propos.html#organisation">Organisation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ressources.html">Dossier Ressources</a><ul>
@@ -99,6 +93,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
 </ul>
@@ -119,6 +117,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../models.html">Dossier Modèles</a><ul>
@@ -144,12 +144,26 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../instance.html">Dossier Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../root.html">Répertoire Racine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../app.html">Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../app.html">Application FLASK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../db.html">Base de données SQLAlchemy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config.html">Configuration de l’application Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config.html#config.ProdConfig"><code class="docutils literal notranslate"><span class="pre">ProdConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../db.html">Instance SQLAlchemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#fichier-db-py">Fichier db.py</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../schemas.html">Schémas Marshmallow</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.ItemSchema"><code class="docutils literal notranslate"><span class="pre">ItemSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.ItemUpdateSchema"><code class="docutils literal notranslate"><span class="pre">ItemUpdateSchema</span></code></a></li>
@@ -159,19 +173,21 @@
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.UserRegisterSchema"><code class="docutils literal notranslate"><span class="pre">UserRegisterSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../doc_dockerfile.html">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichiers-dockerfile">Fichiers : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../doc_dockerfile.html#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../doc_dockerfile.html#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../blocklist.html">Blocklist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../flaskenv.html">Environnement FLASK (.flaskenv)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../flaskenv.html#lien-avec-le-module-python-correspondant-a-l-application-flask">Lien avec le module python correspondant à l’application Flask</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../flaskenv.html#activation-du-mode-debuggage-pour-developement-uniquement">Activation du mode debuggage (pour dévelopement uniquement)</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -285,6 +301,21 @@
     <span class="nb">id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">dump_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">username</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">load_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+ 
+
+<div class="viewcode-block" id="UserRegisterSchema">
+<a class="viewcode-back" href="../schemas.html#schemas.UserRegisterSchema">[docs]</a>
+<span class="k">class</span> <span class="nc">UserRegisterSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe utilisée uniquement pour l&#39;enregistrement initial d&#39;un utilisateur.</span>
+
+<span class="sd">    Sa seule particularité est l&#39;ajout de l&#39;adresse mail qui n&#39;est pas utilisée par ailleurs.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">dump_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">load_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 </pre></div>
 
