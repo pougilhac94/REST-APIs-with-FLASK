@@ -117,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../ressources.html#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../models.html">Dossier Modèles</a><ul>
@@ -156,7 +157,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../db.html">Instance SQLAlchemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db.html#fichier-db-py">Fichier db.py</a></li>
 </ul>
 </li>
@@ -173,7 +176,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../doc_dockerfile.html">Environnement Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc_dockerfile.html#fichier-dockerfile">Fichier : Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../doc_dockerfile.html#environnement-de-developpement">Environnement de développement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../doc_dockerfile.html#environnement-de-production-sur-render-avec-g-unicorn">Environnement de production sur Render avec G Unicorn</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc_dockerfile.html#fichier-dockerignore">Fichier .dockerignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc_dockerfile.html#autres-commandes">Autres commandes</a></li>
 </ul>
@@ -217,13 +224,38 @@
 <span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">get_jwt_identity</span>
 <span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">jwt_required</span>
 <span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">get_jwt</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="kn">from</span> <span class="nn">db</span> <span class="kn">import</span> <span class="n">db</span>
 <span class="kn">from</span> <span class="nn">blocklist</span> <span class="kn">import</span> <span class="n">BLOCKLIST</span>
 <span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">UserModel</span>
 <span class="kn">from</span> <span class="nn">schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span>
 
+<span class="kn">import</span> <span class="nn">app</span>
+
 <span class="n">blp</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Traitements sur les utilisateurs&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="send_simple_message">
+<a class="viewcode-back" href="../../ressources.html#ressources.user.send_simple_message">[docs]</a>
+<span class="k">def</span> <span class="nf">send_simple_message</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Service d&#39;envoi de mails avec GunMail</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        request POST: envoi du mail</span>
+<span class="sd">    </span>
+<span class="sd">    Note:</span>
+<span class="sd">        Ne pas omettre d&#39;importer app, pour récupérer les variables d&#39;environnement chargées dans app.py</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">my_domain</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_DOMAIN&quot;</span><span class="p">)</span>
+    <span class="n">my_key</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_API_KEY&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+		<span class="sa">f</span><span class="s2">&quot;https://api.mailgun.net/v3/</span><span class="si">{</span><span class="n">my_domain</span><span class="si">}</span><span class="s2">/messages&quot;</span><span class="p">,</span>
+		<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;api&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">my_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
+		<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Boss Pougilhac &lt;mailgun@</span><span class="si">{</span><span class="n">my_domain</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">to</span><span class="p">],</span>
+			<span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+			<span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span></div>
+
 
 <div class="viewcode-block" id="User">
 <a class="viewcode-back" href="../../ressources.html#ressources.user.User">[docs]</a>

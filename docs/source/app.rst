@@ -35,6 +35,8 @@ Application FLASK
         * pour une migration : **flask db.migrate**
 
         * pour une mise à jour : **flask db.upgrade**
+
+        * si difficulté, **db stamp head** et réessayer
         
         NB : La base de données est réinitialisée lors de la première migration.
 

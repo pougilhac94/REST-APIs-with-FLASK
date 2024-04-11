@@ -80,6 +80,12 @@ et ouvrir son espace de travail</mark>
 >
 >**Il faut se connecter [ici](https://jwt.io)**
 >
+>### Gunmail
+>
+>Service de livraison d'e-mails permettant d'envoyer, de recevoir et de suivre
+des e-mails
+>
+>**Il faut se connecter [ici](https://jwt.io)**>
 >### Git
 >
 >Environnement de partage et de sauvegarde de l'environnement\
@@ -95,7 +101,7 @@ par un fichier _gitignore_.\
 >Il est ici considéré que l'environnement de production est hébergé sur _render_
 à la différence de l'environnement de développement qui reste _local_.
 >
->>>_Ne pas omettre les variables d'environnement_
+>>>_Ne pas omettre de charger manuellement les variables d'environnement sur le portail_
 >
 >### G Unicorn (_Production_)
 >

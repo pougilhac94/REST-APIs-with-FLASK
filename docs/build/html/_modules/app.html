@@ -117,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../models.html">Dossier Modèles</a><ul>
@@ -156,7 +157,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../db.html">Instance SQLAlchemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../db.html#fichier-db-py">Fichier db.py</a></li>
 </ul>
 </li>
@@ -265,10 +268,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-    <span class="c1"># Using a production configuration</span>
+    <span class="c1"># Usage de la configuration de production (inutile si hébergement cloud via render)</span>
     <span class="c1">#app.config.from_object(&#39;config.ProdConfig&#39;)</span>
 
-    <span class="c1"># Using a development configuration</span>
+    <span class="c1"># Usage de la configuration de développement</span>
     <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="s1">&#39;config.DevConfig&#39;</span><span class="p">)</span>
   
     <span class="c1"># 3 lignes pour afficher une page de garde de l&#39;appli Flask (voir templates/index.html)</span>

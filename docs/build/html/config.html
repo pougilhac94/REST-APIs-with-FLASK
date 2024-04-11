@@ -96,30 +96,6 @@
 <li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -148,10 +124,7 @@
 <li class="toctree-l1"><a class="reference internal" href="instance.html">Dossier Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="root.html">Répertoire Racine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration de l’application Flask</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
@@ -159,7 +132,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="db.html">Instance SQLAlchemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="db.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-developpement-sqlite">BD de développement : SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#bd-de-production-postgresql">BD de production : PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#visualisation-de-la-base-de-donnees-dbeaver">Visualisation de la base de données : DBeaver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="db.html#fichier-db-py">Fichier db.py</a></li>
 </ul>
 </li>
@@ -237,13 +212,16 @@
 <dt class="sig sig-object py" id="config.DevConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">config.</span></span><span class="sig-name descname"><span class="pre">DevConfig</span></span><a class="reference internal" href="_modules/config.html#DevConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#config.DevConfig" title="Link to this definition"></a></dt>
 <dd><p>Variables propres au DEVELOPPEMENT</p>
-<p>Variable FLASK_DEBUG = True pour mise à jour automatique de l’application FLASK suite à modification de tout fichier</p>
+<p>Variable FLASK_DEBUG = True pour mise à jour automatique de l’application FLASK suite à modification de tout fichier
+Si variable DEV_DATABASE_URL absente du fichier .env, la base de données est SQKite par défaut (et en local)</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="config.ProdConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">config.</span></span><span class="sig-name descname"><span class="pre">ProdConfig</span></span><a class="reference internal" href="_modules/config.html#ProdConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#config.ProdConfig" title="Link to this definition"></a></dt>
-<dd><p>Variables propres à la PRODUCTION</p>
+<dd><p>Variables propres à la PRODUCTION (inutile si hébergement cloud sur render.com)</p>
+<p>Dans le cadre d’un hébergement sur render.com, le fichier .env n’étant pas transmis, ces variables sont chargées manuellement sur le portail Render.
+Cette classe devient alors inutile.</p>
 </dd></dl>
 
 </section>

@@ -49,10 +49,10 @@ def create_app(db_url=None):
     """
     app = Flask(__name__)
 
-    # Using a production configuration
+    # Usage de la configuration de production (inutile si hébergement cloud via)
     #app.config.from_object('config.ProdConfig')
 
-    # Using a development configuration
+    # Usage de la configuration de développement
     app.config.from_object('config.DevConfig')
   
     # 3 lignes pour afficher une page de garde de l'appli Flask (voir templates/index.html)
@@ -183,5 +183,3 @@ def create_app(db_url=None):
     return app
 
 create_app()
-
-

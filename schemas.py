@@ -56,3 +56,15 @@ class UserSchema(Schema):
     id = fields.Int(dump_only=True)
     username = fields.Str(required=True)
     password = fields.Str(required=True, load_only=True)
+ 
+
+class UserRegisterSchema(Schema):
+    """Classe utilisée uniquement pour l'enregistrement initial d'un utilisateur.
+
+    Sa seule particularité est l'ajout de l'adresse mail qui n'est pas utilisée par ailleurs.
+    
+    """
+    id = fields.Int(dump_only=True)
+    username = fields.Str(required=True)
+    password = fields.Str(required=True, load_only=True)
+    email = fields.Str(required=True)
