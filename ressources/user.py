@@ -132,6 +132,7 @@ class UserLogout(MethodView):
 
 @blp.route("/users_list")    
 class UserList(MethodView):
+    @blp.response(200, UserSchema(many=True))
     @jwt_required()
     def get(self):
         return UserModel.query.all()
