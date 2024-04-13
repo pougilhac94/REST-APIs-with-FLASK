@@ -22,6 +22,7 @@ class Config:
     # Par facilité, les variables d'API de courrier sont identiques dans les 2 environnements
     EMAIL_API_KEY = environ.get('MAILGUN_API_KEY') # Service d'email API
     EMAIL_DOMAIN = environ.get('MAILGUN_DOMAIN') # Service d'email API
+    REDIS_URL = environ.get('REDIS_URL') # open source, in-memory key-value store (pour gérer la file d'attente)
     
 
 class ProdConfig(Config):

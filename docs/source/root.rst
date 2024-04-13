@@ -13,8 +13,5 @@ Documentation relative aux fichiers rattachés directement à la racine
    db
    schemas
    doc_dockerfile
-   blocklist   
-   
-
-
-   
+   blocklist
+   tasks

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Application FLASK &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+  <title>Tasks &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
@@ -25,8 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Configuration de l’application Flask" href="config.html" />
-    <link rel="prev" title="Répertoire Racine" href="root.html" /> 
+    <link rel="prev" title="Blocklist" href="blocklist.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -121,8 +120,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -151,8 +148,8 @@
 <li class="toctree-l1"><a class="reference internal" href="instance.html">Dossier Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="root.html">Répertoire Racine</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Application FLASK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="config.html">Configuration de l’application Flask</a><ul>
@@ -192,6 +189,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -211,107 +213,63 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="root.html">Répertoire Racine</a></li>
-      <li class="breadcrumb-item active">Application FLASK</li>
+      <li class="breadcrumb-item active">Tasks</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/app.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="_sources/tasks.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="root.html" class="btn btn-neutral float-left" title="Répertoire Racine" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="config.html" class="btn btn-neutral float-right" title="Configuration de l’application Flask" accesskey="n">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="blocklist.html" class="btn btn-neutral float-left" title="Blocklist" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="application-flask">
-<h1>Application FLASK<a class="headerlink" href="#application-flask" title="Link to this heading"></a></h1>
-<ul>
-<li><p>Pour créer l’application Flask, le module app.py s’appuie principalement sur :</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><strong>Flask</strong></p></li>
-<li><p><strong>flask_smorest : Api</strong> (classe permettant de créer des REST API avec Flask)</p></li>
-<li><p><strong>flask_jwt_extended : JWTManager</strong> (classe permettant de générer et de vérifier les jetons JWT (Json Web Token)).</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>au sein du projet :</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><strong>db</strong> : instance SQLAlchemy</p></li>
-<li><p><strong>blocklist</strong> : liste des tokens bloqués</p></li>
-<li><p><strong>Blueprint</strong> : pour chaque ressource</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Instance <strong>SQLAlchemy</strong></p>
-<blockquote>
-<div><ul>
-<li><p><strong>Callback init_app()</strong> used to initialize an application for the use with the database setup.</p></li>
-<li><p><strong>Method create_all()</strong> tpour créer les tables.</p>
-<blockquote>
-<div><p>This method will issue queries that first check for the existence of each individual table, and if not found will issue the CREATE statements.</p>
-<p>create_all() creates foreign key constraints between tables usually inline with the table definition itself, and for this reason it also generates the tables in order of their dependency.</p>
-</div></blockquote>
-</li>
-<li><p><strong>Migrate</strong> pour prendre en compte tout changement de schéma de la base de données, et pour changer de SGBD (SQLite à PostgreSQL par exemple).</p>
-<blockquote>
-<div><p>La méthode create_all est alors abandonée.</p>
-<ul class="simple">
-<li><p>pour une migration : <strong>flask db.migrate</strong></p></li>
-<li><p>pour une mise à jour : <strong>flask db.upgrade</strong></p></li>
-<li><p>si difficulté, <strong>db stamp head</strong> et réessayer</p></li>
-</ul>
-<p>NB : La base de données est réinitialisée lors de la première migration.</p>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Création objet <strong>Api()</strong></p></li>
-<li><p>Création objet <strong>JWTManager()</strong></p></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Astuce</p>
-<p>Pour la gestion des variables d’environnement décrites dans le fichier <strong>.env</strong>, app.py s’appuie sur le fichier <strong>config.py</strong> par appel de <strong>config.from_object</strong> en précisant l’environnement de travail (développement ou production).</p>
-</div>
-<p>—</p>
-<dl class="py function" id="module-app">
-<dt class="sig sig-object py" id="app.create_app">
-<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">create_app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#create_app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.create_app" title="Link to this definition"></a></dt>
-<dd><p>Création de l’application Flask</p>
-<p>Récupération des paramètres de configuration dans config.py</p>
-<p>Pour le fun, appel de la page du portail (index.html)</p>
-<p>Etablissement de la connexion avec Redis et mise en place de la file d’attente</p>
-<p>Migration (si nécessaire) de la base de données</p>
-<p>Gestion des APIs et des tokens (JWT)</p>
-<dl class="simple">
-<dt>Chargement des différents Flask Blueprint à partir du dossier Ressources:</dt><dd><ul class="simple">
-<li><p>item</p></li>
-<li><p>store</p></li>
-<li><p>tag</p></li>
-<li><p>user</p></li>
-</ul>
-</dd>
-</dl>
+  <section id="tasks">
+<h1>Tasks<a class="headerlink" href="#tasks" title="Link to this heading"></a></h1>
+<p>Isolement des fonctions d’envoi de mails pour rattachement à une file d’attente via Redis</p>
+<hr class="docutils" />
+<dl class="py function" id="module-tasks">
+<dt class="sig sig-object py" id="tasks.send_simple_message">
+<span class="sig-prename descclassname"><span class="pre">tasks.</span></span><span class="sig-name descname"><span class="pre">send_simple_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tasks.html#send_simple_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tasks.send_simple_message" title="Link to this definition"></a></dt>
+<dd><p>Service d’envoi de mails avec GunMail</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>db_url</strong> (<em>optional</em>) – Defaults to None.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> (<em>mail</em>) – mail du destinataire</p></li>
+<li><p><strong>subject</strong> (<em>str</em>) – objet du mail</p></li>
+<li><p><strong>body</strong> (<em>str</em>) – texte du mail</p></li>
+</ul>
 </dd>
 <dt class="field-even">Renvoie<span class="colon">:</span></dt>
-<dd class="field-even"><p>application Flask</p>
+<dd class="field-even"><p>envoi automatique du mail</p>
 </dd>
 <dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
+<dd class="field-odd"><p>service</p>
 </dd>
 </dl>
-<dl>
-<dt>Fonctions imbriquées:</dt><dd><p>check_if_token_in_blocklist</p>
-<p>revoked_token_callback</p>
-<p>expired_token_callback</p>
-<p>invalid_token_callback</p>
-<p>imissing_token_callback</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ne pas omettre d’importer current_app, pour récupérer les variables d’environnement chargées dans app.py</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tasks.send_user_registration_email">
+<span class="sig-prename descclassname"><span class="pre">tasks.</span></span><span class="sig-name descname"><span class="pre">send_user_registration_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tasks.html#send_user_registration_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tasks.send_user_registration_email" title="Link to this definition"></a></dt>
+<dd><p>Envoi d’un mail personnalisé suite à inscription</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>email</strong> (<em>mail</em>) – mail du destinataire</p></li>
+<li><p><strong>username</strong> (<em>str</em>) – username</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>envoi automatique du mail par appel de la fonction send_simple_message</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>service</p>
 </dd>
 </dl>
 </dd></dl>
@@ -322,8 +280,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="root.html" class="btn btn-neutral float-left" title="Répertoire Racine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="config.html" class="btn btn-neutral float-right" title="Configuration de l’application Flask" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="blocklist.html" class="btn btn-neutral float-left" title="Blocklist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
     </div>
 
   <hr/>

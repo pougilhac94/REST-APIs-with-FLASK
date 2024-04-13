@@ -3,6 +3,8 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask import jsonify
 from flask_migrate import Migrate
+import redis
+from rq import Queue
 
 from flask import render_template
 
@@ -17,12 +19,16 @@ from ressources.user import blp as UserBlueprint
 def create_app(db_url=None):
     """Création de l'application Flask
     
-    Définition des paramètres de configuration :
-        - API
-        - OPEN_API
-        - SQL_ALCHEMY
-        - JWT (Json Web Token)
+    Récupération des paramètres de configuration dans config.py
+
+    Pour le fun, appel de la page du portail (index.html)
+
+    Etablissement de la connexion avec Redis et mise en place de la file d'attente
+
+    Migration (si nécessaire) de la base de données
     
+    Gestion des APIs et des tokens (JWT)    
+
     Chargement des différents Flask Blueprint à partir du dossier Ressources:
         - item
         - store
@@ -59,6 +65,11 @@ def create_app(db_url=None):
     @app.route('/')
     def home():
         return render_template('index.html')
+
+    # Etablissement de la file d'attente pour l'envoi des mails (plutôt qu'un envoi direct)
+    my_redis_url = app.config.get("REDIS_URL")# Get this from Render.com or run in Docker
+    connection = redis.from_url(my_redis_url)  
+    app.queue = Queue("emails", connection=connection)
 
     #This callback used to initialize an application for the use with this database setup.
     db.init_app(app)

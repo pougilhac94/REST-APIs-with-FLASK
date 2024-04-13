@@ -121,7 +121,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -191,6 +190,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -246,6 +250,9 @@
 <p>The basic concept of blueprints is that they record operations to execute when registered on an application. Flask associates view functions with blueprints when dispatching requests and generating URLs from one endpoint to another.</p>
 </aside>
 </aside>
+<hr class="docutils" />
+<p>Une ressource supplémentaire est particulière, il s’agit de <strong>tasks.py</strong> qui a été ajouté pour traiter l’envoi de mail en file d’attente.</p>
+<p>La file d’attente étant gérée indépendamment de l’application Flask (l’application ne lance que la file d’attente), ce fichier contient les fonctions de production de mail mais aussi le chargement de variables d’environnement.</p>
 <hr class="docutils" />
 <dl class="py class" id="module-ressources.item">
 <dt class="sig sig-object py" id="ressources.item.Item">
@@ -656,24 +663,6 @@
 <dd class="field-even"><p>raise error or None</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ressources.user.send_simple_message">
-<span class="sig-prename descclassname"><span class="pre">ressources.user.</span></span><span class="sig-name descname"><span class="pre">send_simple_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ressources/user.html#send_simple_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ressources.user.send_simple_message" title="Link to this definition"></a></dt>
-<dd><p>Service d’envoi de mails avec GunMail</p>
-<dl class="field-list simple">
-<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
-<dd class="field-odd"><p>envoi du mail</p>
-</dd>
-<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
-<dd class="field-even"><p>request POST</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Ne pas omettre d’importer app, pour récupérer les variables d’environnement chargées dans app.py</p>
-</div>
 </dd></dl>
 
 </section>

@@ -96,6 +96,31 @@
 <li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -124,7 +149,10 @@
 <li class="toctree-l1"><a class="reference internal" href="instance.html">Dossier Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="root.html">Répertoire Racine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="config.html">Configuration de l’application Flask</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
@@ -147,6 +175,7 @@
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserRegisterSchema"><code class="docutils literal notranslate"><span class="pre">UserRegisterSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
 </ul>
 </li>
@@ -245,6 +274,10 @@
 </ul>
 <blockquote>
 <div><p><em>NB : Pas d’utilisation d’un <strong>Docker Volume</strong> mais plutôt d’un <strong>Bind Mounts</strong></em></p>
+<blockquote>
+<div><p><strong>WARNING</strong></p>
+<p>Sous Windows, il faut passer par Docker pour mettre en oeuvre une <em>file d’attente</em>.</p>
+</div></blockquote>
 </div></blockquote>
 </section>
 <section id="environnement-de-production-sur-render-avec-g-unicorn">

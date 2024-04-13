@@ -23,6 +23,12 @@ Chaque ressource importe préalablement :
 
 ----
 
+Une ressource supplémentaire est particulière, il s'agit de **tasks.py** qui a été ajouté pour traiter l'envoi de mail en file d'attente.
+
+La file d'attente étant gérée indépendamment de l'application Flask (l'application ne lance que la file d'attente), ce fichier contient les fonctions de production de mail mais aussi le chargement de variables d'environnement.
+
+----
+
 .. automodule:: ressources.item
     :members:
 .. automodule:: ressources.store

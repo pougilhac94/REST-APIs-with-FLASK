@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vue d&#39;ensemble : code du module &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
+  <title>tasks &mdash; Documentation REST APIs with Flask and Python in 2024 0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/twemoji.css?v=2199c511" />
@@ -210,7 +210,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Vue d'ensemble : code du module</li>
+          <li class="breadcrumb-item"><a href="index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">tasks</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -219,21 +220,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Modules pour lesquels le code est disponible</h1>
-<ul><li><a href="app.html">app</a></li>
-<li><a href="config.html">config</a></li>
-<li><a href="models/item.html">models.item</a></li>
-<li><a href="models/item_tags.html">models.item_tags</a></li>
-<li><a href="models/store.html">models.store</a></li>
-<li><a href="models/tag.html">models.tag</a></li>
-<li><a href="models/user.html">models.user</a></li>
-<li><a href="ressources/item.html">ressources.item</a></li>
-<li><a href="ressources/store.html">ressources.store</a></li>
-<li><a href="ressources/tag.html">ressources.tag</a></li>
-<li><a href="ressources/user.html">ressources.user</a></li>
-<li><a href="schemas.html">schemas</a></li>
-<li><a href="tasks.html">tasks</a></li>
-</ul>
+  <h1>Code source de tasks</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">environ</span><span class="p">,</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="c1"># Specificy a `.env` file containing key/value config values</span>
+<span class="n">basedir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s2">&quot;.env&quot;</span><span class="p">))</span>
+
+<div class="viewcode-block" id="send_simple_message">
+<a class="viewcode-back" href="../tasks.html#tasks.send_simple_message">[docs]</a>
+<span class="k">def</span> <span class="nf">send_simple_message</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Service d&#39;envoi de mails avec GunMail</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        to (mail): mail du destinataire</span>
+<span class="sd">        subject (str): objet du mail</span>
+<span class="sd">        body (str): texte du mail</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        service: envoi automatique du mail</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Ne pas omettre d&#39;importer current_app, pour récupérer les variables d&#39;environnement chargées dans app.py</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+     
+    <span class="n">my_email_domain</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_DOMAIN&quot;</span><span class="p">)</span>
+    <span class="n">my_email_api_key</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_API_KEY&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+		<span class="sa">f</span><span class="s2">&quot;https://api.mailgun.net/v3/</span><span class="si">{</span><span class="n">my_email_domain</span><span class="si">}</span><span class="s2">/messages&quot;</span><span class="p">,</span>
+		<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;api&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">my_email_api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
+		<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Boss Pougilhac &lt;mailgun@</span><span class="si">{</span><span class="n">my_email_domain</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">to</span><span class="p">],</span>
+			<span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+			<span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="send_user_registration_email">
+<a class="viewcode-back" href="../tasks.html#tasks.send_user_registration_email">[docs]</a>
+<span class="k">def</span> <span class="nf">send_user_registration_email</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Envoi d&#39;un mail personnalisé suite à inscription</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        email (mail): mail du destinataire</span>
+<span class="sd">        username (str): username</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        service: envoi automatique du mail par appel de la fonction send_simple_message</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">send_simple_message</span><span class="p">(</span>
+        <span class="n">email</span><span class="p">,</span>
+        <span class="s2">&quot;Inscription réussie&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;Bonjour </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">! Vous êtes maintenant inscrit sur Stores REST API.&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+</pre></div>
 
            </div>
           </div>

@@ -34,6 +34,10 @@
 ```docker run -dp 5000:5000 -w /app -v absolute-path:/app" flask-smorest-api```[^2]
 >
 >*NB : Pas d'utilisation d'un **Docker Volume** mais plutôt d'un **Bind Mounts***
+>
+>>**WARNING**
+>>
+>> Sous Windows, il faut passer par Docker pour mettre en oeuvre une *file d'attente*.
 
 ### Environnement de production sur Render avec G Unicorn
 

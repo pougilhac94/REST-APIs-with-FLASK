@@ -7,37 +7,17 @@ from flask_jwt_extended import create_refresh_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt
-import requests
 import re
+from flask import current_app
 
 from db import db
 from blocklist import BLOCKLIST
 from models import UserModel
 from schemas import UserSchema, UserRegisterSchema
-from flask import current_app
+from tasks import send_user_registration_email
 
 blp = Blueprint("users", __name__, description="Traitements sur les utilisateurs")
 
-def send_simple_message(to, subject, body):
-    """Service d'envoi de mails avec GunMail
-
-    Returns:
-        request POST: envoi du mail
-    
-    Note:
-        Ne pas omettre d'importer app, pour récupérer les variables d'environnement chargées dans app.py
-    """
-    my_domain = current_app.config.get("EMAIL_DOMAIN")
-    my_key = current_app.config.get("EMAIL_API_KEY")
-
-    return requests.post(
-		f"https://api.mailgun.net/v3/{my_domain}/messages",
-		auth=("api", f"{my_key}"),
-		data={"from": f"Boss Pougilhac <mailgun@{my_domain}>",
-			"to": [to],
-			"subject": subject,
-			"text": body})
- 
 def check(email):
     """Validation d'un email par expression régulière
 
@@ -89,8 +69,9 @@ class UserRegister(MethodView):
         except SQLAlchemyError:
             abort(500, message="Erreur lors de l'insertion de l'utillisateur dans la table")
         else:
-            send_simple_message(user_data["email"], 'Inscription', 'Bienvenue !')
-            return {"message": "Identifiant créé, vous avez reçu un mail de confirmation"}, 201
+            # l'envoi du mail est mis en file d'attente
+            current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
+            return {"message": "Identifiant créé, vous allez recevoir un mail de confirmation"}, 201
 
 
 @blp.route("/login")

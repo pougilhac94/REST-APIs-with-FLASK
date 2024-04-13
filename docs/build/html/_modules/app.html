@@ -118,7 +118,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../models.html">Dossier Modèles</a><ul>
@@ -222,6 +223,8 @@
 <span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">JWTManager</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
 <span class="kn">from</span> <span class="nn">flask_migrate</span> <span class="kn">import</span> <span class="n">Migrate</span>
+<span class="kn">import</span> <span class="nn">redis</span>
+<span class="kn">from</span> <span class="nn">rq</span> <span class="kn">import</span> <span class="n">Queue</span>
 
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
 
@@ -238,12 +241,16 @@
 <span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">db_url</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Création de l&#39;application Flask</span>
 <span class="sd">    </span>
-<span class="sd">    Définition des paramètres de configuration :</span>
-<span class="sd">        - API</span>
-<span class="sd">        - OPEN_API</span>
-<span class="sd">        - SQL_ALCHEMY</span>
-<span class="sd">        - JWT (Json Web Token)</span>
+<span class="sd">    Récupération des paramètres de configuration dans config.py</span>
+
+<span class="sd">    Pour le fun, appel de la page du portail (index.html)</span>
+
+<span class="sd">    Etablissement de la connexion avec Redis et mise en place de la file d&#39;attente</span>
+
+<span class="sd">    Migration (si nécessaire) de la base de données</span>
 <span class="sd">    </span>
+<span class="sd">    Gestion des APIs et des tokens (JWT)    </span>
+
 <span class="sd">    Chargement des différents Flask Blueprint à partir du dossier Ressources:</span>
 <span class="sd">        - item</span>
 <span class="sd">        - store</span>
@@ -280,6 +287,11 @@
     <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
         <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Etablissement de la file d&#39;attente pour l&#39;envoi des mails (plutôt qu&#39;un envoi direct)</span>
+    <span class="n">my_redis_url</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;REDIS_URL&quot;</span><span class="p">)</span><span class="c1"># Get this from Render.com or run in Docker</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">my_redis_url</span><span class="p">)</span>  
+    <span class="n">app</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="s2">&quot;emails&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">connection</span><span class="p">)</span>
 
     <span class="c1">#This callback used to initialize an application for the use with this database setup.</span>
     <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>

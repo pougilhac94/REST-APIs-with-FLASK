@@ -91,6 +91,7 @@ d'un service gratuit _(vérifier dossier spam)_.
 >2. Deux variables d'environnements sont à prendre en compte.
 >
 >**Le suivi du service est [ici](https://app.mailgun.com/mg/dashboard)**>
+>
 >### Git
 >
 >Environnement de partage et de sauvegarde de l'environnement\
@@ -117,6 +118,19 @@ purement local sur un docker local
 >>>_G Unicorn n'a pas à être installé sur la machine virtuelle (niveau local)._
 >>>
 >>>_G Unicorn doit être mentionné dans le fichier **requirements**._
+>
+>### Redis (_Production_)
+>
+>Redis est un système de gestion de base de données clé-valeur extensible,
+très hautes performances. il est ici utilisé pour la mise en place et la gestion
+d'une file d'attente pour l'envoi des mails.
+>
+>Redis est ici installé sur Render. Pour s'affranchir de Render, il faudrait
+installer Redis localement ou envoyer directement les mails sans passer par
+une file d'attente.
+>
+>La file d'attente peut être gérée directement sous Linux mais pas sous Windows.
+Pour Windows, il faut donc passer par Docker.
 >
 ## Organisation
 >

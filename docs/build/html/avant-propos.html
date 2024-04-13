@@ -121,7 +121,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -354,6 +353,15 @@ purement local sur un docker local</p>
 <p><em>G Unicorn doit être mentionné dans le fichier <strong>requirements</strong>.</em></p>
 </div></blockquote>
 </div></blockquote>
+<h3 class="rubric" id="redis-production">Redis (<em>Production</em>)</h3>
+<p>Redis est un système de gestion de base de données clé-valeur extensible,
+très hautes performances. il est ici utilisé pour la mise en place et la gestion
+d’une file d’attente pour l’envoi des mails.</p>
+<p>Redis est ici installé sur Render. Pour s’affranchir de Render, il faudrait
+installer Redis localement ou envoyer directement les mails sans passer par
+une file d’attente.</p>
+<p>La file d’attente peut être gérée directement sous Linux mais pas sous Windows.
+Pour Windows, il faut donc passer par Docker.</p>
 </div></blockquote>
 </section>
 <section id="organisation">

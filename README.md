@@ -18,7 +18,10 @@ virtuelle python (.venv)
 
 ## Démarrage
 
-Exécutez la commande ``run flask`` pour lancer l'application.
+* Exécutez la commande ``run flask`` pour lancer l'application en local.
+* ou par Docker en local (voir [doc](docs/build/html/index.html))
+* ou via Render en production sur le Cloud (voir [doc](docs/build/html/index.html))
+
 
 ## Fabriqué avec
 
@@ -39,10 +42,14 @@ Exécutez la commande ``run flask`` pour lancer l'application.
 ![Insomnia Badge](https://img.shields.io/badge/Insomnia-4000BF?logo=insomnia&logoColor=fff&style=plastic)
 ![JSON Web Tokens Badge](https://img.shields.io/badge/JSON%20Web%20Tokens-000?logo=jsonwebtokens&logoColor=fff&style=plastic)
 
+* ![Mailgun](https://img.shields.io/badge/Mailgun-F06B66.svg?style=for-the-badge&logo=Mailgun&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+
 ## En production sur
 
 * ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 ![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white)
+![Docker Badge](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
 
 ## Contributions
 
