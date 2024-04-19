@@ -57,5 +57,5 @@ def send_user_registration_email(email, username:str):
         email,
         "Inscription réussie",
         f"Bonjour {username}! Vous êtes maintenant inscrit sur Stores REST API.",
-        render_template("email/action.html", username=username, render_url="https://rest-apis-with-flask.onrender.com/"),
+        render_template("email/action.html", username=username),
     )
