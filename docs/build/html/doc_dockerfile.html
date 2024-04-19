@@ -96,31 +96,6 @@
 <li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -190,6 +165,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Tasks</a></li>
 </ul>
 </li>
 </ul>
@@ -267,14 +243,39 @@
 <code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">[&quot;flask&quot;,</span> <span class="pre">&quot;run&quot;,</span> <span class="pre">&quot;--host&quot;,</span> <span class="pre">&quot;0.0.0.0&quot;]</span></code></p></li>
 </ul>
 <ul class="simple">
-<li><p>Création de l’image rest-apis-flask-python :<br />
+<li><p>Création de l’image rest-api-recording-email :<br />
 <em>à partir du terminal, saisir le . final pour répertoire courant de l’image</em><br />
-<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">flask-smorest-api</span> <span class="pre">.</span></code><a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><br />
-<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-w</span> <span class="pre">/app</span> <span class="pre">-v</span> <span class="pre">absolute-path:/app&quot;</span> <span class="pre">flask-smorest-api</span></code><a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">rest-api-recording-email</span> <span class="pre">.</span></code><a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+</ul>
+<ul class="simple">
+<li><p>Lancement du container</p>
+<ul>
+<li><p>Plusieurs options de positionnement de la base de données sont envisageables:</p>
+<ul>
+<li><p>basic container pour une image :
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-w</span> <span class="pre">/app</span> <span class="pre">rest-api-recording-email</span></code><a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
+<li><p>Lancement du container avec la BD sur le DD (<strong>Bind Monts</strong>):&gt;<br />
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-v</span> <span class="pre">&quot;absolute-path:/app/instance&quot;</span> <span class="pre">rest-api-recording-email</span> <span class="pre">sh</span> <span class="pre">-c</span> <span class="pre">&quot;flask</span> <span class="pre">run</span> <span class="pre">--host</span> <span class="pre">0.0.0.0&quot;</span></code><a class="footnote-reference brackets" href="#id5" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
+<li><p>Lancement du container avec la BD sur un <strong>Volume</strong>:<br />
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-v</span> <span class="pre">volume_name:/app/instance</span> <span class="pre">rest-api-recording-email</span> <span class="pre">sh</span> <span class="pre">-c</span> <span class="pre">&quot;flask</span> <span class="pre">run</span> <span class="pre">--host</span> <span class="pre">0.0.0.0&quot;</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Bind Mount</strong> : le chemin d’accès de la base est indiqué en dur (chemin complet
+dans le cas de Windows)<br />
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-dp</span> <span class="pre">5000:5000</span> <span class="pre">-w</span> <span class="pre">/app</span> <span class="pre">-v</span> <span class="pre">&quot;/c/users/christian/documents/udemy/recording/instance:/app/instance&quot;</span> <span class="pre">rest-api-recording-email</span></code></p></li>
+<li><p><strong>Volume</strong> : après sa création, le Volume Docker pointe sur un répertoire donné au lancement du run.<br />
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-p</span> <span class="pre">5000:5000</span> <span class="pre">-v</span> <span class="pre">sqlite-stores:/app/instance</span> <span class="pre">rest-api-recording-email</span> <span class="pre">sh</span> <span class="pre">-c</span> <span class="pre">&quot;flask</span> <span class="pre">run</span> <span class="pre">--host</span> <span class="pre">0.0.0.0&quot;</span></code><br />
+La liaison avec le volume créé précédemment est : <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">volume_name:répertoire</span></code>
+Cet usage semble le plus pratique, toutefois je n’ai pas réussi à connecter
+DBeaver à la BD.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>En l’absence de toute information, <strong>les données ne seront pas persistentes</strong>.</p></li>
 </ul>
 <blockquote>
-<div><p><em>NB : Pas d’utilisation d’un <strong>Docker Volume</strong> mais plutôt d’un <strong>Bind Mounts</strong></em></p>
-<blockquote>
+<div><blockquote>
 <div><p><strong>WARNING</strong></p>
 <p>Sous Windows, il faut passer par Docker pour mettre en oeuvre une <em>file d’attente</em>.</p>
 </div></blockquote>
@@ -329,14 +330,17 @@
 </ul>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p><em>-t</em> pour tagué l’image avec <em>flask-smorest-api</em></p>
-</aside>
 <aside class="footnote brackets" id="id4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><em>-t image_name</em> pour taguer l’image</p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
 <p><em>-w /app</em> - sets the container’s present working directory where the command will run from<br />
-<em>-v « /c/users….:/app »</em> - bind mount (link) the host’s present getting-started/app directory to the container’s /app directory.</p>
+<em>-v « /c/users….:/app »</em> - bind mount (link) the host’s present getting-started/app directory to the container’s /app directory.<br />
+<em>-d</em> - exécution en arrière-plan (d=detach)<br />
+<em>-p host:container</em> - adresse du host : port du container (p=publish)</p>
 </aside>
 </aside>
 </section>

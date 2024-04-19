@@ -222,33 +222,40 @@
              
   <h1>Code source de tasks</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">jinja2</span>
 
 <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">environ</span><span class="p">,</span> <span class="n">path</span>
 <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
 
-<span class="c1"># Specificy a `.env` file containing key/value config values</span>
-<span class="n">basedir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<span class="n">load_dotenv</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s2">&quot;.env&quot;</span><span class="p">))</span>
+<span class="n">template_loader</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="s2">&quot;templates&quot;</span><span class="p">)</span>
+<span class="n">template_env</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">template_loader</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">render_template</span><span class="p">(</span><span class="n">template_filename</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">template_env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">template_filename</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">context</span><span class="p">)</span>
 
 <div class="viewcode-block" id="send_simple_message">
 <a class="viewcode-back" href="../tasks.html#tasks.send_simple_message">[docs]</a>
-<span class="k">def</span> <span class="nf">send_simple_message</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">send_simple_message</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">html</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Service d&#39;envoi de mails avec GunMail</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        to (mail): mail du destinataire</span>
 <span class="sd">        subject (str): objet du mail</span>
 <span class="sd">        body (str): texte du mail</span>
+<span class="sd">        html (str): pour accepter du html</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        service: envoi automatique du mail</span>
 
 <span class="sd">    Note:</span>
 <span class="sd">        Ne pas omettre d&#39;importer current_app, pour récupérer les variables d&#39;environnement chargées dans app.py</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-     
-    <span class="n">my_email_domain</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_DOMAIN&quot;</span><span class="p">)</span>
-    <span class="n">my_email_api_key</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_API_KEY&quot;</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>     
+    <span class="c1"># Specificy a `.env` file containing key/value config values</span>
+    <span class="n">basedir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">load_dotenv</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s2">&quot;.env&quot;</span><span class="p">))</span>
+    
+    <span class="n">my_email_domain</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;MAILGUN_DOMAIN&quot;</span><span class="p">)</span>
+    <span class="n">my_email_api_key</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;MAILGUN_API_KEY&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
 		<span class="sa">f</span><span class="s2">&quot;https://api.mailgun.net/v3/</span><span class="si">{</span><span class="n">my_email_domain</span><span class="si">}</span><span class="s2">/messages&quot;</span><span class="p">,</span>
@@ -256,7 +263,9 @@
 		<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Boss Pougilhac &lt;mailgun@</span><span class="si">{</span><span class="n">my_email_domain</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">,</span>
 			<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">to</span><span class="p">],</span>
 			<span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-			<span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span></div>
+			<span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">body</span><span class="p">,</span>
+            <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="n">html</span><span class="p">,</span>
+            <span class="p">})</span></div>
 
 
 <div class="viewcode-block" id="send_user_registration_email">
@@ -271,10 +280,12 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        service: envoi automatique du mail par appel de la fonction send_simple_message</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Specificy a `.env` file containing key/value config values</span>
     <span class="k">return</span> <span class="n">send_simple_message</span><span class="p">(</span>
         <span class="n">email</span><span class="p">,</span>
         <span class="s2">&quot;Inscription réussie&quot;</span><span class="p">,</span>
         <span class="sa">f</span><span class="s2">&quot;Bonjour </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">! Vous êtes maintenant inscrit sur Stores REST API.&quot;</span><span class="p">,</span>
+        <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;email/action.html&quot;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">render_url</span><span class="o">=</span><span class="s2">&quot;https://rest-apis-with-flask.onrender.com/&quot;</span><span class="p">),</span>
     <span class="p">)</span></div>
 
 </pre></div>

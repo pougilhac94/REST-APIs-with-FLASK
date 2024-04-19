@@ -187,6 +187,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks.html">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tasks.html#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tasks.html#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -294,6 +299,9 @@
             <span class="n">abort</span><span class="p">(</span><span class="mi">409</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Un utilisateur avec ce nom ou ce mail existe déjà&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">SQLAlchemyError</span><span class="p">:</span>
             <span class="n">abort</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Erreur lors de l&#39;insertion de l&#39;utillisateur dans la table&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected </span><span class="si">{</span><span class="n">err</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">520</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mais que se passe-t-il ?  </span><span class="si">{</span><span class="n">err</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># l&#39;envoi du mail est mis en file d&#39;attente</span>
             <span class="n">current_app</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">send_user_registration_email</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>

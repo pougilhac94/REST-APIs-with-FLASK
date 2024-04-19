@@ -47,14 +47,20 @@ répertoire de l'application. Il pourra être complété par un fichier _dockeri
 >
 >* Créer l'image
 >
->>>`docker build -t flask-smorest-api .`
->
 >* Produire le container
 >
->>>`docker run -dp 5000:5000 -w /app -v
-"/c/users/christian/documents/udemy/recording:/app" flask-smorest-api`
->>>
->>>(_cette commande lance l'application Flask sur le port 5000_)
+>>>>Plusieurs options de positionnement de la base de données sont envisageables:
+>
+>>>>* **Bind Mount** : le chemin d'accès de la base sur le disque dur du PC est
+indiqué en dur (chemin complet dans le cas de Windows)  
+>>>>* **Volume** : création d'un Volume Docker qui pointera sur un répertoire
+donné.  
+Cet usage semble le plus pratique, toutefois je n'ai pas réussi à connecter
+DBeaver à la BD.
+>>>>* Accès sur une base hébergée sur le cloud (illustration avec render).
+>
+>>>>* En l'absence de toute information, **les données ne seront pas persistentes**
+(réinitialisation à chaque mise à jour de l'image).
 >
 >### Insomnia[^1]
 >
