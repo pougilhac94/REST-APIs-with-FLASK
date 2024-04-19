@@ -4,7 +4,19 @@ Instance SQLAlchemy
 BD de développement : SQLite
 ------------------------------
 
-    Les données sont placées dans le fichier **data.db** du dossier **instance**.
+    Les données sont placées dans le fichier **sqlite_stores.db** du dossier **instance**.
+
+    Le nom de la base de données est ici fixé par la valeur du paramètre **SQLALCHEMY_DATABASE_URI** qui a pris par défaut la valeur **sqlite:///dataname.db** dans le fichier **config.py** et où *dataname* est le nom attribué à la base de données.
+
+    La creation initiale de la base de données est liée aux commandes successives dans *app.py* :
+
+        db = SQLAlchemy() *dans db.py*
+
+        db.init_app(app) *où app = flask(__name__)*
+        
+        with app.app_context():
+
+            db.create_all()
 
 BD de production : PostgreSQL
 --------------------------------

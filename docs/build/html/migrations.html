@@ -96,8 +96,31 @@
 <li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -126,7 +149,10 @@
 <li class="toctree-l1"><a class="reference internal" href="instance.html">Dossier Instance</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Dossier Migrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root.html">Répertoire Racine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">Application FLASK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="config.html">Configuration de l’application Flask</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
@@ -164,6 +190,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -198,10 +229,29 @@
   <section id="dossier-migrations">
 <h1>Dossier Migrations<a class="headerlink" href="#dossier-migrations" title="Link to this heading"></a></h1>
 <p>Historique des versions de la base de données.</p>
-<p>En cas de diificultés dans le versionning, il peut être utile de passer la commande</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="n">stamp</span> <span class="n">head</span>
-</pre></div>
-</div>
+<blockquote>
+<div><dl>
+<dt>Pour gérer les migrations, il faut ajouter dans app.py:</dt><dd><blockquote>
+<div><p>migrate = Migrate(app, db)</p>
+</div></blockquote>
+<p>et supprimer :</p>
+<blockquote>
+<div><p>db.create_all()</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>En lignes de commande pour la base locale SQLite :</p>
+<blockquote>
+<div><p><strong>flask db migrate</strong> <em>ajout dossier migration</em></p>
+<p>supprimer la base de données (dans dossier instance)</p>
+<p><strong>flask db migrate</strong> <em>toujours vérifier le dossier .py dans le sous-dossier versions de migrations</em></p>
+<p><strong>flask db update</strong> ou flask db <strong>downgrade</strong> selon le but recherché</p>
+</div></blockquote>
+</div></blockquote>
+<p><em>En cas de difficultés dans le versionning, il peut être utile de passer la commande</em></p>
+<blockquote>
+<div><p><em>db stamp head</em></p>
+</div></blockquote>
 </section>
 
 

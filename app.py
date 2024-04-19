@@ -73,6 +73,8 @@ def create_app(db_url=None):
 
     #This callback used to initialize an application for the use with this database setup.
     db.init_app(app)
+
+    # Migration de la base (faire un delete avant et supprimer le create_all)
     migrate = Migrate(app, db)
     api = Api(app)
     
@@ -182,7 +184,7 @@ def create_app(db_url=None):
             401
         )
 
-    # Method create_all() to create tables with SQLAlchemy.
+    # ## Method create_all() to create tables with SQLAlchemy. (usage unique)
     # with app.app_context():
     #    db.create_all()
 

@@ -118,8 +118,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../models.html">Dossier Modèles</a><ul>
@@ -189,6 +187,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -295,6 +298,8 @@
 
     <span class="c1">#This callback used to initialize an application for the use with this database setup.</span>
     <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c1"># Migration de la base (faire un delete avant et supprimer le create_all)</span>
     <span class="n">migrate</span> <span class="o">=</span> <span class="n">Migrate</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
     <span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     
@@ -404,7 +409,7 @@
             <span class="mi">401</span>
         <span class="p">)</span>
 
-    <span class="c1"># Method create_all() to create tables with SQLAlchemy.</span>
+    <span class="c1"># ## Method create_all() to create tables with SQLAlchemy. (usage unique)</span>
     <span class="c1"># with app.app_context():</span>
     <span class="c1">#    db.create_all()</span>
 

@@ -120,6 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Dossier Modèles</a><ul>
@@ -174,6 +175,7 @@
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.StoreSchema"><code class="docutils literal notranslate"><span class="pre">StoreSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagAndItemSchema"><code class="docutils literal notranslate"><span class="pre">TagAndItemSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.TagSchema"><code class="docutils literal notranslate"><span class="pre">TagSchema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserRegisterSchema"><code class="docutils literal notranslate"><span class="pre">UserRegisterSchema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html#schemas.UserSchema"><code class="docutils literal notranslate"><span class="pre">UserSchema</span></code></a></li>
 </ul>
 </li>
@@ -188,6 +190,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -225,7 +232,17 @@
 <section id="bd-de-developpement-sqlite">
 <h2>BD de développement : SQLite<a class="headerlink" href="#bd-de-developpement-sqlite" title="Link to this heading"></a></h2>
 <blockquote>
-<div><p>Les données sont placées dans le fichier <strong>data.db</strong> du dossier <strong>instance</strong>.</p>
+<div><p>Les données sont placées dans le fichier <strong>sqlite_stores.db</strong> du dossier <strong>instance</strong>.</p>
+<p>Le nom de la base de données est ici fixé par la valeur du paramètre <strong>SQLALCHEMY_DATABASE_URI</strong> qui a pris par défaut la valeur <strong>sqlite:///dataname.db</strong> dans le fichier <strong>config.py</strong> et où <em>dataname</em> est le nom attribué à la base de données.</p>
+<p>La creation initiale de la base de données est liée aux commandes successives dans <em>app.py</em> :</p>
+<blockquote>
+<div><p>db = SQLAlchemy() <em>dans db.py</em></p>
+<p>db.init_app(app) <em>où app = flask(__name__)</em></p>
+<p>with app.app_context():</p>
+<blockquote>
+<div><p>db.create_all()</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </section>
 <section id="bd-de-production-postgresql">

@@ -93,8 +93,31 @@
 <li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.tag.TagsInStore.post"><code class="docutils literal notranslate"><span class="pre">TagsInStore.post()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.TokenRefresh"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.TokenRefresh.methods"><code class="docutils literal notranslate"><span class="pre">TokenRefresh.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.User.methods"><code class="docutils literal notranslate"><span class="pre">User.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.UserList"><code class="docutils literal notranslate"><span class="pre">UserList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserList.methods"><code class="docutils literal notranslate"><span class="pre">UserList.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.UserLogin"><code class="docutils literal notranslate"><span class="pre">UserLogin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserLogin.methods"><code class="docutils literal notranslate"><span class="pre">UserLogin.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.UserLogout"><code class="docutils literal notranslate"><span class="pre">UserLogout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserLogout.methods"><code class="docutils literal notranslate"><span class="pre">UserLogout.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.UserRegister"><code class="docutils literal notranslate"><span class="pre">UserRegister</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ressources.html#ressources.user.UserRegister.methods"><code class="docutils literal notranslate"><span class="pre">UserRegister.methods</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ressources.html#ressources.user.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../models.html">Dossier Modèles</a><ul>
@@ -123,7 +146,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../instance.html">Dossier Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../migrations.html">Dossier Migrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../root.html">Répertoire Racine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../app.html">Application FLASK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app.html">Application FLASK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../app.html#app.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../config.html">Configuration de l’application Flask</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../config.html#config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../config.html#config.DevConfig"><code class="docutils literal notranslate"><span class="pre">DevConfig</span></code></a></li>
@@ -161,6 +187,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../blocklist.html">Blocklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#tasks.send_simple_message"><code class="docutils literal notranslate"><span class="pre">send_simple_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#tasks.send_user_registration_email"><code class="docutils literal notranslate"><span class="pre">send_user_registration_email()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -229,7 +260,7 @@
 <span class="sd">    Cette classe devient alors inutile.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">FLASK_DEBUG</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># redémarre application suite à modification</span>
-    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROD__DATABASE_URL&#39;</span><span class="p">)</span> <span class="c1"># ou sqlite:///data.db</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROD__DATABASE_URL&#39;</span><span class="p">)</span> <span class="c1"># ou sqlite:///dataname.db</span>
     <span class="n">JWT_SECRET_KEY</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROD_JWT_SECRET_KEY&#39;</span><span class="p">)</span></div>
 
 
@@ -243,7 +274,7 @@
 <span class="sd">    Si variable DEV_DATABASE_URL absente du fichier .env, la base de données est SQKite par défaut (et en local)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">FLASK_DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_DATABASE_URL&#39;</span><span class="p">,</span> <span class="s1">&#39;sqlite:///data.db&#39;</span><span class="p">)</span> <span class="c1"># sqlite par défaut</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_DATABASE_URL&#39;</span><span class="p">,</span> <span class="s1">&#39;sqlite:///sqlite_stores.db&#39;</span><span class="p">)</span> <span class="c1"># sqlite par défaut</span>
     <span class="n">JWT_SECRET_KEY</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_JWT_SECRET_KEY&#39;</span><span class="p">)</span></div>
 
 </pre></div>

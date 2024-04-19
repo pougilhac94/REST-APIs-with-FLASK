@@ -22,8 +22,8 @@ class Config:
     # Par facilité, les variables d'API de courrier sont identiques dans les 2 environnements
     EMAIL_API_KEY = environ.get('MAILGUN_API_KEY') # Service d'email API
     EMAIL_DOMAIN = environ.get('MAILGUN_DOMAIN') # Service d'email API
-    REDIS_URL = environ.get('REDIS_URL') # open source, in-memory key-value store (pour gérer la file d'attente)
-    
+    REDIS_URL = environ.get('REDIS_URL') # open source, in-memory key-value store (pour gérer la file d'attente)    
+
 
 class ProdConfig(Config):
     """Variables propres à la PRODUCTION (inutile si hébergement cloud sur render.com)
@@ -32,7 +32,7 @@ class ProdConfig(Config):
     Cette classe devient alors inutile.
     """
     FLASK_DEBUG = False # redémarre application suite à modification
-    SQLALCHEMY_DATABASE_URI = environ.get('PROD__DATABASE_URL') # ou sqlite:///data.db
+    SQLALCHEMY_DATABASE_URI = environ.get('PROD__DATABASE_URL') # ou sqlite:///dataname.db
     JWT_SECRET_KEY = environ.get('PROD_JWT_SECRET_KEY')
 
 
@@ -41,7 +41,8 @@ class DevConfig(Config):
     
     Variable FLASK_DEBUG = True pour mise à jour automatique de l'application FLASK suite à modification de tout fichier
     Si variable DEV_DATABASE_URL absente du fichier .env, la base de données est SQKite par défaut (et en local)
+
     """
     FLASK_DEBUG = True
-    SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URL', 'sqlite:///data.db') # sqlite par défaut
+    SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URL', 'sqlite:///sqlite_stores.db') # sqlite par défaut
     JWT_SECRET_KEY = environ.get('DEV_JWT_SECRET_KEY')

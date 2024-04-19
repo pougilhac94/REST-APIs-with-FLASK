@@ -2,4 +2,5 @@
 .markdownlint.json
 *.pyc
 __pycache__
+instance/sqlite_stores.db
 docs

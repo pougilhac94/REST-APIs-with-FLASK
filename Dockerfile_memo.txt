@@ -1,3 +1,18 @@
+En local, pour travailler avec redis (file d'attente pour mails)
+-----------------------------------------------------
+
+# image docker
+docker build -t image_docker_name .
+
+# pour lancer le worker
+docker run -w /app image_docker_name sh -c "rq worker -u redis_url emails"
+
+# pour lancer l'application localement (port = 5000)
+docker run -p 5000:port image_docker_name sh -c "flask run --host 0.0.0.0"
+
+Base
+----
+
 # Image de base
 FROM python:3.11
 # port de l'applicatiobn flask : 5000

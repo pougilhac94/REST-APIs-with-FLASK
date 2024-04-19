@@ -225,6 +225,7 @@
 
 <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">environ</span><span class="p">,</span> <span class="n">path</span>
 <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+
 <span class="c1"># Specificy a `.env` file containing key/value config values</span>
 <span class="n">basedir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 <span class="n">load_dotenv</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s2">&quot;.env&quot;</span><span class="p">))</span>
@@ -247,7 +248,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
      
     <span class="n">my_email_domain</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_DOMAIN&quot;</span><span class="p">)</span>
-    <span class="n">my_email_api_key</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_API_KEY&quot;</span><span class="p">)</span>
+    <span class="n">my_email_api_key</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EMAIL_API_KEY&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
 		<span class="sa">f</span><span class="s2">&quot;https://api.mailgun.net/v3/</span><span class="si">{</span><span class="n">my_email_domain</span><span class="si">}</span><span class="s2">/messages&quot;</span><span class="p">,</span>
