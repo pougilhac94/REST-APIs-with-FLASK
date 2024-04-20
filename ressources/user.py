@@ -23,7 +23,7 @@ blp = Blueprint("users", __name__, description="Traitements sur les utilisateurs
 
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, ".env"))
-my_redis_url = environ.getenv("REDIS_URL")# Get this from Render.com or run in Docker
+my_redis_url = environ.get("REDIS_URL")# Get this from Render.com or run in Docker
 connection = redis.from_url(my_redis_url)
 print(f"USER.PY - {my_redis_url=} pour lancement queue", flush=True)
 queue = Queue("emails", connection=connection)
