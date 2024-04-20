@@ -69,11 +69,11 @@ class UserRegister(MethodView):
         except SQLAlchemyError:
             abort(500, message="Erreur lors de l'insertion de l'utillisateur dans la table")
         except Exception as err:
-            print(f"Unexpected {err=}, {type(err)=}")
+            print(f"Unexpected {err=}, {type(err)=}", flush=True)
             abort(520, message=f"Mais que se passe-t-il ?  {err=}")
         else:
             # l'envoi du mail est mis en file d'attente
-            print(f"USER.PY, Mise en file d'attente pour mail {user.email} concernant {user.username}\n")
+            print(f"USER.PY, Mise en file d'attente pour mail {user.email} concernant {user.username}\n", flush=True)
             current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
             return {"message": "Identifiant créé, vous allez recevoir un mail de confirmation"}, 201
 
