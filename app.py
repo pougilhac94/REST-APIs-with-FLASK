@@ -68,7 +68,8 @@ def create_app(db_url=None):
 
     # Etablissement de la file d'attente pour l'envoi des mails (plutôt qu'un envoi direct)
     my_redis_url = app.config.get("REDIS_URL")# Get this from Render.com or run in Docker
-    connection = redis.from_url(my_redis_url)  
+    connection = redis.from_url(my_redis_url)
+    print(f"APP.PY - {my_redis_url=} pour lancement queue", flush=True)
     app.queue = Queue("emails", connection=connection)
 
     #This callback used to initialize an application for the use with this database setup.

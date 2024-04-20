@@ -60,7 +60,7 @@ class UserRegister(MethodView):
             password = pbkdf2_sha256.hash(user_data["password"]),
             email = user_data["email"]
         )
-        print('Flush est à True', flush=True)
+        print('USER.PY - Flush est à True', flush=True)
         try:
             db.session.add(user)
             db.session.commit()
@@ -73,7 +73,7 @@ class UserRegister(MethodView):
             abort(520, message=f"Mais que se passe-t-il ?  {err=}")
         else:
             # l'envoi du mail est mis en file d'attente
-            print(f"USER.PY, Mise en file d'attente pour mail {user.email} concernant {user.username}\n", flush=True)
+            print(f"USER.PY - Mise en file d'attente pour mail {user.email} concernant {user.username}\n", flush=True)
             current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
             return {"message": "Identifiant créé, vous allez recevoir un mail de confirmation"}, 201
 

@@ -32,7 +32,7 @@ def send_simple_message(to, subject:str, body:str, html:str):
     my_email_domain = environ.get("MAILGUN_DOMAIN")
     my_email_api_key = environ.get("MAILGUN_API_KEY")
 
-    print(f"SEND_SIMPLE_MESSAGE :{my_email_domain=}, {my_email_api_key=}, {to=}", flush=True)
+    print(f"TASKS.PY - SEND_SIMPLE_MESSAGE :{my_email_domain=}, {my_email_api_key=}, {to=}", flush=True)
 
     return requests.post(
 		f"https://api.mailgun.net/v3/{my_email_domain}/messages",
@@ -55,7 +55,7 @@ def send_user_registration_email(email, username:str):
         service: envoi automatique du mail par appel de la fonction send_simple_message
     """
     # Specificy a `.env` file containing key/value config values
-    print(f"SEND_USER_REGISTRATION_EMAIL :{email=}, {username=}", flush=True)
+    print(f"TASKS.PY - SEND_USER_REGISTRATION_EMAIL :{email=}, {username=}", flush=True)
     return send_simple_message(
         email,
         "Inscription réussie",
