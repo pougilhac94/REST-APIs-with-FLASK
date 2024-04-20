@@ -8,7 +8,8 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt
 import re
-import os
+from os import environ, path
+from dotenv import load_dotenv
 import redis
 from rq import Queue
 
@@ -20,7 +21,9 @@ from tasks import send_user_registration_email
 
 blp = Blueprint("users", __name__, description="Traitements sur les utilisateurs")
 
-my_redis_url = os.getenv("REDIS_URL")# Get this from Render.com or run in Docker
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, ".env"))
+my_redis_url = environ.getenv("REDIS_URL")# Get this from Render.com or run in Docker
 connection = redis.from_url(my_redis_url)
 print(f"USER.PY - {my_redis_url=} pour lancement queue", flush=True)
 queue = Queue("emails", connection=connection)
@@ -80,7 +83,7 @@ class UserRegister(MethodView):
             abort(520, message=f"Mais que se passe-t-il ?  {err=}")
         else:
             # l'envoi du mail est mis en file d'attente
-            print(f"USER.PY - Mise en file d'attente pour mail {user.email} concernant {user.username}\n", flush=True)
+            print(f"USER.PY - Mise en file d'attente pour mail {user.email} concernant {user.username} sur {my_redis_url=}\n", flush=True)
             # current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
             queue.enqueue(send_user_registration_email, user.email, user.username)
             return {"message": "Identifiant créé, vous allez recevoir un mail de confirmation"}, 201
