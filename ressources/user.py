@@ -8,7 +8,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt
 import re
-from flask import current_app
+import os
 import redis
 from rq import Queue
 
@@ -20,7 +20,7 @@ from tasks import send_user_registration_email
 
 blp = Blueprint("users", __name__, description="Traitements sur les utilisateurs")
 
-my_redis_url = current_app.config.get("REDIS_URL")# Get this from Render.com or run in Docker
+my_redis_url = os.getenv("REDIS_URL")# Get this from Render.com or run in Docker
 connection = redis.from_url(my_redis_url)
 print(f"USER.PY - {my_redis_url=} pour lancement queue", flush=True)
 queue = Queue("emails", connection=connection)
