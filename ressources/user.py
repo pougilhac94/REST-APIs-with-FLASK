@@ -60,7 +60,7 @@ class UserRegister(MethodView):
             password = pbkdf2_sha256.hash(user_data["password"]),
             email = user_data["email"]
         )
-
+        print('Flush est à True', flush=True)
         try:
             db.session.add(user)
             db.session.commit()
