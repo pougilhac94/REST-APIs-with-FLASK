@@ -3,8 +3,8 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask import jsonify
 from flask_migrate import Migrate
-import redis
-from rq import Queue
+# import redis
+# from rq import Queue
 
 from flask import render_template
 
@@ -67,10 +67,10 @@ def create_app(db_url=None):
         return render_template('index.html')
 
     # Etablissement de la file d'attente pour l'envoi des mails (plutôt qu'un envoi direct)
-    my_redis_url = app.config.get("REDIS_URL")# Get this from Render.com or run in Docker
-    connection = redis.from_url(my_redis_url)
-    print(f"APP.PY - {my_redis_url=} pour lancement queue", flush=True)
-    app.queue = Queue("emails", connection=connection)
+    # my_redis_url = app.config.get("REDIS_URL")# Get this from Render.com or run in Docker
+    # connection = redis.from_url(my_redis_url)
+    # print(f"APP.PY - {my_redis_url=} pour lancement queue", flush=True)
+    # app.queue = Queue("emails", connection=connection)
 
     #This callback used to initialize an application for the use with this database setup.
     db.init_app(app)

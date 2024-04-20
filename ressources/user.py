@@ -9,6 +9,8 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt
 import re
 from flask import current_app
+import redis
+from rq import Queue
 
 from db import db
 from blocklist import BLOCKLIST
@@ -17,6 +19,11 @@ from schemas import UserSchema, UserRegisterSchema
 from tasks import send_user_registration_email
 
 blp = Blueprint("users", __name__, description="Traitements sur les utilisateurs")
+
+my_redis_url = current_app.config.get("REDIS_URL")# Get this from Render.com or run in Docker
+connection = redis.from_url(my_redis_url)
+print(f"USER.PY - {my_redis_url=} pour lancement queue", flush=True)
+queue = Queue("emails", connection=connection)
 
 def check(email):
     """Validation d'un email par expression régulière
@@ -74,7 +81,8 @@ class UserRegister(MethodView):
         else:
             # l'envoi du mail est mis en file d'attente
             print(f"USER.PY - Mise en file d'attente pour mail {user.email} concernant {user.username}\n", flush=True)
-            current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
+            # current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
+            queue.enqueue(send_user_registration_email, user.email, user.username)
             return {"message": "Identifiant créé, vous allez recevoir un mail de confirmation"}, 201
 
 
